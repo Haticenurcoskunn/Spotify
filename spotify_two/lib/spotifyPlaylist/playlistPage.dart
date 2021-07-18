@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:spotify/my_general_widget.dart/dowload_switch.dart';
 import 'package:spotify/spotifyPlaylist/color_transition_pink.dart';
 import 'package:spotify/spotifyPlaylist/headtext_row.dart';
 import 'package:spotify/spotifyPlaylist/song_list.dart';
@@ -32,7 +33,9 @@ class _SpotifyPlayList extends State {
                   children: [
                     topHeadTextRow(),// Ders Çalışırken
                     turkishPopImageContainer(context),
-                    downloadSwitch(),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: DowloadSwitch()),
                     Column(
                       children: buildSongList(context),
                     ),
@@ -48,22 +51,6 @@ class _SpotifyPlayList extends State {
   }
 
 
-  Align downloadSwitch() {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: Switch(
-        activeColor: Colors.green,
-        value: isSwitched,
-        onChanged: (value) {
-          setState(
-            () {
-              isSwitched = value;
-            },
-          );
-        },
-      ),
-    );
-  }
 }
 
 

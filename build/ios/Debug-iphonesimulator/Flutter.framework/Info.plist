@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleDevelopmentRegion</key>
+  <string>en</string>
+  <key>CFBundleExecutable</key>
+  <string>Flutter</string>
+  <key>CFBundleIdentifier</key>
+  <string>io.flutter.flutter</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>CFBundleName</key>
+  <string>Flutter</string>
+  <key>CFBundlePackageType</key>
+  <string>FMWK</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.0</string>
+  <key>CFBundleSignature</key>
+  <string>????</string>
+  <key>CFBundleVersion</key>
+  <string>1.0</string>
+  <key>MinimumOSVersion</key>
+  <string>8.0</string>
+  <key>FlutterEngine</key>
+  <string>c633b2a6a04ffe81308cdd8916c062725a8ed1e1</string>
+  <key>ClangVersion</key>
+  <string>Fuchsia clang version 13.0.0 (https://llvm.googlesource.com/a/llvm-project f7c5c0d87b8ae5e55006fd3a31994cd68d64f102)</string>
+</dict>
+</plist>

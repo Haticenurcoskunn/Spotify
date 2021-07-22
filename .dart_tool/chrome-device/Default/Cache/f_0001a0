@@ -1,0 +1,1878 @@
+define(['dart_sdk', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/cupertino/switch.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/painting/_network_image_web.dart', 'packages/flutter/src/material/material_state.dart', 'packages/flutter/src/services/mouse_cursor.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/material/toggleable.dart', 'packages/flutter/src/gestures/drag_details.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/material/shadows.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/flutter/src/painting/decoration.dart'], (function load__packages__flutter__src__material__switch_dart(dart_sdk, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__cupertino__switch$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__painting___network_image_web$46dart, packages__flutter__src__material__material_state$46dart, packages__flutter__src__services__mouse_cursor$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__material__toggleable$46dart, packages__flutter__src__gestures__drag_details$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__material__shadows$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__flutter__src__painting__decoration$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const debug = packages__flutter__src__material__icon_button$46dart.src__material__debug;
+  const focus_scope = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_scope;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const focus_manager = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_manager;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const $switch = packages__flutter__src__cupertino__switch$46dart.src__cupertino__switch;
+  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
+  const material_state = packages__flutter__src__material__material_state$46dart.src__material__material_state;
+  const mouse_cursor = packages__flutter__src__services__mouse_cursor$46dart.src__services__mouse_cursor;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const toggleable = packages__flutter__src__material__toggleable$46dart.src__material__toggleable;
+  const drag_details = packages__flutter__src__gestures__drag_details$46dart.src__gestures__drag_details;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const shadows = packages__flutter__src__material__shadows$46dart.src__material__shadows;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const decoration = packages__flutter__src__painting__decoration$46dart.src__painting__decoration;
+  var $switch$ = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $abs = dartx.abs;
+  var $noSuchMethod = dartx.noSuchMethod;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    boolTovoid: () => (T.boolTovoid = dart.constFn(dart.fnType(dart.void, [core.bool])))(),
+    ObjectFlagPropertyOfboolTovoid: () => (T.ObjectFlagPropertyOfboolTovoid = dart.constFn(diagnostics.ObjectFlagProperty$(T.boolTovoid())))(),
+    ColorN: () => (T.ColorN = dart.constFn(dart.nullable(ui.Color)))(),
+    SetOfMaterialState: () => (T.SetOfMaterialState = dart.constFn(core.Set$(material_state.MaterialState)))(),
+    SetOfMaterialStateToColorN: () => (T.SetOfMaterialStateToColorN = dart.constFn(dart.fnType(T.ColorN(), [T.SetOfMaterialState()])))(),
+    SetOfMaterialStateToColor: () => (T.SetOfMaterialStateToColor = dart.constFn(dart.fnType(ui.Color, [T.SetOfMaterialState()])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    MouseCursorN: () => (T.MouseCursorN = dart.constFn(dart.nullable(mouse_cursor.MouseCursor)))(),
+    SetOfMaterialStateToMouseCursor: () => (T.SetOfMaterialStateToMouseCursor = dart.constFn(dart.fnType(mouse_cursor.MouseCursor, [T.SetOfMaterialState()])))(),
+    ListenableN: () => (T.ListenableN = dart.constFn(dart.nullable(change_notifier.Listenable)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: $switch$._SwitchType.prototype,
+        [_name$]: "_SwitchType.material",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: $switch$._SwitchType.prototype,
+        [_name$]: "_SwitchType.adaptive",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], $switch$._SwitchType);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: recognizer.DragStartBehavior.prototype,
+        [_name]: "DragStartBehavior.start",
+        index: 1
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 48,
+        [OffsetBase__dx]: 59
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name$0]: "MaterialTapTargetSize.padded",
+        index: 0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 40,
+        [OffsetBase__dx]: 59
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name$0]: "MaterialTapTargetSize.shrinkWrap",
+        index: 1
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dragStartBehavior",
+        [_Location_column]: 13,
+        [_Location_line]: 384,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 13,
+        [_Location_line]: 385,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onChanged",
+        [_Location_column]: 13,
+        [_Location_line]: 386,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "activeColor",
+        [_Location_column]: 13,
+        [_Location_line]: 387,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "trackColor",
+        [_Location_column]: 13,
+        [_Location_line]: 388,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14], widget_inspector._Location);
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 383,
+        [_Location_file]: "file:///C:/src/flutter_windows_2.2.3-stable/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 9,
+        [_Location_line]: 380,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 381,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 9,
+        [_Location_line]: 382,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 383,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20], widget_inspector._Location);
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 379,
+        [_Location_file]: "file:///C:/src/flutter_windows_2.2.3-stable/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "focusNode",
+        [_Location_column]: 7,
+        [_Location_line]: 377,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "autofocus",
+        [_Location_column]: 7,
+        [_Location_line]: 378,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 379,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 376,
+        [_Location_file]: "file:///C:/src/flutter_windows_2.2.3-stable/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 7,
+        [_Location_line]: 396,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onChanged",
+        [_Location_column]: 7,
+        [_Location_line]: 397,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 7,
+        [_Location_line]: 398,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "activeColor",
+        [_Location_column]: 7,
+        [_Location_line]: 399,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "activeTrackColor",
+        [_Location_column]: 7,
+        [_Location_line]: 400,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inactiveThumbColor",
+        [_Location_column]: 7,
+        [_Location_line]: 401,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inactiveTrackColor",
+        [_Location_column]: 7,
+        [_Location_line]: 402,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "activeThumbImage",
+        [_Location_column]: 7,
+        [_Location_line]: 403,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onActiveThumbImageError",
+        [_Location_column]: 7,
+        [_Location_line]: 404,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inactiveThumbImage",
+        [_Location_column]: 7,
+        [_Location_line]: 405,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onInactiveThumbImageError",
+        [_Location_column]: 7,
+        [_Location_line]: 406,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "thumbColor",
+        [_Location_column]: 7,
+        [_Location_line]: 407,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "trackColor",
+        [_Location_column]: 7,
+        [_Location_line]: 408,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "materialTapTargetSize",
+        [_Location_column]: 7,
+        [_Location_line]: 409,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dragStartBehavior",
+        [_Location_column]: 7,
+        [_Location_line]: 410,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mouseCursor",
+        [_Location_column]: 7,
+        [_Location_line]: 411,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "focusColor",
+        [_Location_column]: 7,
+        [_Location_line]: 412,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "hoverColor",
+        [_Location_column]: 7,
+        [_Location_line]: 413,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "overlayColor",
+        [_Location_column]: 7,
+        [_Location_line]: 414,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "splashRadius",
+        [_Location_column]: 7,
+        [_Location_line]: 415,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "focusNode",
+        [_Location_column]: 7,
+        [_Location_line]: 416,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "autofocus",
+        [_Location_column]: 7,
+        [_Location_line]: 417,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35, C[36] || CT.C36, C[37] || CT.C37, C[38] || CT.C38, C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43, C[44] || CT.C44, C[45] || CT.C45, C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49], widget_inspector._Location);
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 395,
+        [_Location_file]: "file:///C:/src/flutter_windows_2.2.3-stable/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.android",
+        index: 0
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.fuchsia",
+        index: 1
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.linux",
+        index: 3
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.windows",
+        index: 5
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.iOS",
+        index: 2
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.macOS",
+        index: 4
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 1375731712
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name$2]: "TextDirection.rtl",
+        index: 0
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name$2]: "TextDirection.ltr",
+        index: 1
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "excludeFromSemantics",
+        [_Location_column]: 9,
+        [_Location_line]: 709,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHorizontalDragStart",
+        [_Location_column]: 9,
+        [_Location_line]: 710,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHorizontalDragUpdate",
+        [_Location_column]: 9,
+        [_Location_line]: 711,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHorizontalDragEnd",
+        [_Location_column]: 9,
+        [_Location_line]: 712,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dragStartBehavior",
+        [_Location_column]: 9,
+        [_Location_line]: 713,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 714,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.constList([C[61] || CT.C61, C[62] || CT.C62, C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65, C[66] || CT.C66], widget_inspector._Location);
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[60] || CT.C60,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 708,
+        [_Location_file]: "file:///C:/src/flutter_windows_2.2.3-stable/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "toggled",
+        [_Location_column]: 7,
+        [_Location_line]: 707,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 708,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C[68] = dart.constList([C[69] || CT.C69, C[70] || CT.C70], widget_inspector._Location);
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[68] || CT.C68,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 706,
+        [_Location_file]: "file:///C:/src/flutter_windows_2.2.3-stable/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 7,
+        [Radius_x]: 7
+      });
+    },
+    get C72() {
+      return C[72] = dart.const(new _js_helper.PrivateSymbol.new('_repaint', _repaint));
+    }
+  }, false);
+  var C = Array(73).fill(void 0);
+  var I = [
+    "package:flutter/src/material/switch.dart",
+    "file:///C:/src/flutter_windows_2.2.3-stable/flutter/packages/flutter/lib/src/material/switch.dart"
+  ];
+  var _name$ = dart.privateName($switch$, "_name");
+  $switch$._SwitchType = class _SwitchType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  ($switch$._SwitchType.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = $switch$._SwitchType.prototype;
+  dart.addTypeTests($switch$._SwitchType);
+  dart.addTypeCaches($switch$._SwitchType);
+  dart.setLibraryUri($switch$._SwitchType, I[0]);
+  dart.setFieldSignature($switch$._SwitchType, () => ({
+    __proto__: dart.getFields($switch$._SwitchType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods($switch$._SwitchType, ['toString']);
+  $switch$._SwitchType.material = C[0] || CT.C0;
+  $switch$._SwitchType.adaptive = C[1] || CT.C1;
+  $switch$._SwitchType.values = C[2] || CT.C2;
+  var value$ = dart.privateName($switch$, "Switch.value");
+  var onChanged$ = dart.privateName($switch$, "Switch.onChanged");
+  var activeColor$ = dart.privateName($switch$, "Switch.activeColor");
+  var activeTrackColor$ = dart.privateName($switch$, "Switch.activeTrackColor");
+  var inactiveThumbColor$ = dart.privateName($switch$, "Switch.inactiveThumbColor");
+  var inactiveTrackColor$ = dart.privateName($switch$, "Switch.inactiveTrackColor");
+  var activeThumbImage$ = dart.privateName($switch$, "Switch.activeThumbImage");
+  var onActiveThumbImageError$ = dart.privateName($switch$, "Switch.onActiveThumbImageError");
+  var inactiveThumbImage$ = dart.privateName($switch$, "Switch.inactiveThumbImage");
+  var onInactiveThumbImageError$ = dart.privateName($switch$, "Switch.onInactiveThumbImageError");
+  var thumbColor$ = dart.privateName($switch$, "Switch.thumbColor");
+  var trackColor$ = dart.privateName($switch$, "Switch.trackColor");
+  var materialTapTargetSize$ = dart.privateName($switch$, "Switch.materialTapTargetSize");
+  var _switchType = dart.privateName($switch$, "Switch._switchType");
+  var dragStartBehavior$ = dart.privateName($switch$, "Switch.dragStartBehavior");
+  var mouseCursor$ = dart.privateName($switch$, "Switch.mouseCursor");
+  var focusColor$ = dart.privateName($switch$, "Switch.focusColor");
+  var hoverColor$ = dart.privateName($switch$, "Switch.hoverColor");
+  var overlayColor$ = dart.privateName($switch$, "Switch.overlayColor");
+  var splashRadius$ = dart.privateName($switch$, "Switch.splashRadius");
+  var focusNode$ = dart.privateName($switch$, "Switch.focusNode");
+  var autofocus$ = dart.privateName($switch$, "Switch.autofocus");
+  var _name = dart.privateName(recognizer, "_name");
+  var _switchType$ = dart.privateName($switch$, "_switchType");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var _name$0 = dart.privateName(theme_data, "_name");
+  var _getSwitchSize = dart.privateName($switch$, "_getSwitchSize");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var _buildCupertinoSwitch = dart.privateName($switch$, "_buildCupertinoSwitch");
+  var _buildMaterialSwitch = dart.privateName($switch$, "_buildMaterialSwitch");
+  var _name$1 = dart.privateName(platform, "_name");
+  $switch$.Switch = class Switch extends framework.StatelessWidget {
+    get value() {
+      return this[value$];
+    }
+    set value(value) {
+      super.value = value;
+    }
+    get onChanged() {
+      return this[onChanged$];
+    }
+    set onChanged(value) {
+      super.onChanged = value;
+    }
+    get activeColor() {
+      return this[activeColor$];
+    }
+    set activeColor(value) {
+      super.activeColor = value;
+    }
+    get activeTrackColor() {
+      return this[activeTrackColor$];
+    }
+    set activeTrackColor(value) {
+      super.activeTrackColor = value;
+    }
+    get inactiveThumbColor() {
+      return this[inactiveThumbColor$];
+    }
+    set inactiveThumbColor(value) {
+      super.inactiveThumbColor = value;
+    }
+    get inactiveTrackColor() {
+      return this[inactiveTrackColor$];
+    }
+    set inactiveTrackColor(value) {
+      super.inactiveTrackColor = value;
+    }
+    get activeThumbImage() {
+      return this[activeThumbImage$];
+    }
+    set activeThumbImage(value) {
+      super.activeThumbImage = value;
+    }
+    get onActiveThumbImageError() {
+      return this[onActiveThumbImageError$];
+    }
+    set onActiveThumbImageError(value) {
+      super.onActiveThumbImageError = value;
+    }
+    get inactiveThumbImage() {
+      return this[inactiveThumbImage$];
+    }
+    set inactiveThumbImage(value) {
+      super.inactiveThumbImage = value;
+    }
+    get onInactiveThumbImageError() {
+      return this[onInactiveThumbImageError$];
+    }
+    set onInactiveThumbImageError(value) {
+      super.onInactiveThumbImageError = value;
+    }
+    get thumbColor() {
+      return this[thumbColor$];
+    }
+    set thumbColor(value) {
+      super.thumbColor = value;
+    }
+    get trackColor() {
+      return this[trackColor$];
+    }
+    set trackColor(value) {
+      super.trackColor = value;
+    }
+    get materialTapTargetSize() {
+      return this[materialTapTargetSize$];
+    }
+    set materialTapTargetSize(value) {
+      super.materialTapTargetSize = value;
+    }
+    get [_switchType$]() {
+      return this[_switchType];
+    }
+    set [_switchType$](value) {
+      super[_switchType$] = value;
+    }
+    get dragStartBehavior() {
+      return this[dragStartBehavior$];
+    }
+    set dragStartBehavior(value) {
+      super.dragStartBehavior = value;
+    }
+    get mouseCursor() {
+      return this[mouseCursor$];
+    }
+    set mouseCursor(value) {
+      super.mouseCursor = value;
+    }
+    get focusColor() {
+      return this[focusColor$];
+    }
+    set focusColor(value) {
+      super.focusColor = value;
+    }
+    get hoverColor() {
+      return this[hoverColor$];
+    }
+    set hoverColor(value) {
+      super.hoverColor = value;
+    }
+    get overlayColor() {
+      return this[overlayColor$];
+    }
+    set overlayColor(value) {
+      super.overlayColor = value;
+    }
+    get splashRadius() {
+      return this[splashRadius$];
+    }
+    set splashRadius(value) {
+      super.splashRadius = value;
+    }
+    get focusNode() {
+      return this[focusNode$];
+    }
+    set focusNode(value) {
+      super.focusNode = value;
+    }
+    get autofocus() {
+      return this[autofocus$];
+    }
+    set autofocus(value) {
+      super.autofocus = value;
+    }
+    [_getSwitchSize](theme) {
+      let t0, t0$;
+      let effectiveMaterialTapTargetSize = (t0$ = (t0 = this.materialTapTargetSize, t0 == null ? theme.switchTheme.materialTapTargetSize : t0), t0$ == null ? theme.materialTapTargetSize : t0$);
+      switch (effectiveMaterialTapTargetSize) {
+        case C[5] || CT.C5:
+        {
+          return C[4] || CT.C4;
+        }
+        case C[7] || CT.C7:
+        {
+          return C[6] || CT.C6;
+        }
+      }
+    }
+    [_buildCupertinoSwitch](context) {
+      let size = this[_getSwitchSize](theme$.Theme.of(context));
+      return new focus_scope.Focus.new({focusNode: this.focusNode, autofocus: this.autofocus, child: new container.Container.new({width: size.width, height: size.height, alignment: alignment.Alignment.center, child: new $switch.CupertinoSwitch.new({dragStartBehavior: this.dragStartBehavior, value: this.value, onChanged: this.onChanged, activeColor: this.activeColor, trackColor: this.inactiveTrackColor, $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21});
+    }
+    [_buildMaterialSwitch](context) {
+      return new $switch$._MaterialSwitch.new({value: this.value, onChanged: this.onChanged, size: this[_getSwitchSize](theme$.Theme.of(context)), activeColor: this.activeColor, activeTrackColor: this.activeTrackColor, inactiveThumbColor: this.inactiveThumbColor, inactiveTrackColor: this.inactiveTrackColor, activeThumbImage: this.activeThumbImage, onActiveThumbImageError: this.onActiveThumbImageError, inactiveThumbImage: this.inactiveThumbImage, onInactiveThumbImageError: this.onInactiveThumbImageError, thumbColor: this.thumbColor, trackColor: this.trackColor, materialTapTargetSize: this.materialTapTargetSize, dragStartBehavior: this.dragStartBehavior, mouseCursor: this.mouseCursor, focusColor: this.focusColor, hoverColor: this.hoverColor, overlayColor: this.overlayColor, splashRadius: this.splashRadius, focusNode: this.focusNode, autofocus: this.autofocus, $creationLocationd_0dea112b090073317d4: C[26] || CT.C26});
+    }
+    build(context) {
+      switch (this[_switchType$]) {
+        case C[0] || CT.C0:
+        {
+          return this[_buildMaterialSwitch](context);
+        }
+        case C[1] || CT.C1:
+        {
+          {
+            let theme = theme$.Theme.of(context);
+            if (!(theme.platform !== null)) dart.assertFailed(null, I[1], 429, 16, "theme.platform != null");
+            switch (theme.platform) {
+              case C[50] || CT.C50:
+              case C[51] || CT.C51:
+              case C[52] || CT.C52:
+              case C[53] || CT.C53:
+              {
+                return this[_buildMaterialSwitch](context);
+              }
+              case C[54] || CT.C54:
+              case C[55] || CT.C55:
+              {
+                return this[_buildCupertinoSwitch](context);
+              }
+            }
+          }
+        }
+      }
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.FlagProperty.new("value", {value: this.value, ifTrue: "on", ifFalse: "off", showName: true}));
+      properties.add(new (T.ObjectFlagPropertyOfboolTovoid()).new("onChanged", this.onChanged, {ifNull: "disabled"}));
+    }
+  };
+  ($switch$.Switch.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let activeTrackColor = opts && 'activeTrackColor' in opts ? opts.activeTrackColor : null;
+    let inactiveThumbColor = opts && 'inactiveThumbColor' in opts ? opts.inactiveThumbColor : null;
+    let inactiveTrackColor = opts && 'inactiveTrackColor' in opts ? opts.inactiveTrackColor : null;
+    let activeThumbImage = opts && 'activeThumbImage' in opts ? opts.activeThumbImage : null;
+    let onActiveThumbImageError = opts && 'onActiveThumbImageError' in opts ? opts.onActiveThumbImageError : null;
+    let inactiveThumbImage = opts && 'inactiveThumbImage' in opts ? opts.inactiveThumbImage : null;
+    let onInactiveThumbImageError = opts && 'onInactiveThumbImageError' in opts ? opts.onInactiveThumbImageError : null;
+    let thumbColor = opts && 'thumbColor' in opts ? opts.thumbColor : null;
+    let trackColor = opts && 'trackColor' in opts ? opts.trackColor : null;
+    let materialTapTargetSize = opts && 'materialTapTargetSize' in opts ? opts.materialTapTargetSize : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[3] || CT.C3;
+    let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : null;
+    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+    let overlayColor = opts && 'overlayColor' in opts ? opts.overlayColor : null;
+    let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+    let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
+    let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$] = value;
+    this[onChanged$] = onChanged;
+    this[activeColor$] = activeColor;
+    this[activeTrackColor$] = activeTrackColor;
+    this[inactiveThumbColor$] = inactiveThumbColor;
+    this[inactiveTrackColor$] = inactiveTrackColor;
+    this[activeThumbImage$] = activeThumbImage;
+    this[onActiveThumbImageError$] = onActiveThumbImageError;
+    this[inactiveThumbImage$] = inactiveThumbImage;
+    this[onInactiveThumbImageError$] = onInactiveThumbImageError;
+    this[thumbColor$] = thumbColor;
+    this[trackColor$] = trackColor;
+    this[materialTapTargetSize$] = materialTapTargetSize;
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[mouseCursor$] = mouseCursor;
+    this[focusColor$] = focusColor;
+    this[hoverColor$] = hoverColor;
+    this[overlayColor$] = overlayColor;
+    this[splashRadius$] = splashRadius;
+    this[focusNode$] = focusNode;
+    this[autofocus$] = autofocus;
+    this[_switchType] = $switch$._SwitchType.material;
+    if (!(dragStartBehavior !== null)) dart.assertFailed(null, I[1], 90, 16, "dragStartBehavior != null");
+    if (!(activeThumbImage != null || onActiveThumbImageError == null)) dart.assertFailed(null, I[1], 91, 16, "activeThumbImage != null || onActiveThumbImageError == null");
+    if (!(inactiveThumbImage != null || onInactiveThumbImageError == null)) dart.assertFailed(null, I[1], 92, 16, "inactiveThumbImage != null || onInactiveThumbImageError == null");
+    $switch$.Switch.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = $switch$.Switch.prototype;
+  ($switch$.Switch.adaptive = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let activeTrackColor = opts && 'activeTrackColor' in opts ? opts.activeTrackColor : null;
+    let inactiveThumbColor = opts && 'inactiveThumbColor' in opts ? opts.inactiveThumbColor : null;
+    let inactiveTrackColor = opts && 'inactiveTrackColor' in opts ? opts.inactiveTrackColor : null;
+    let activeThumbImage = opts && 'activeThumbImage' in opts ? opts.activeThumbImage : null;
+    let onActiveThumbImageError = opts && 'onActiveThumbImageError' in opts ? opts.onActiveThumbImageError : null;
+    let inactiveThumbImage = opts && 'inactiveThumbImage' in opts ? opts.inactiveThumbImage : null;
+    let onInactiveThumbImageError = opts && 'onInactiveThumbImageError' in opts ? opts.onInactiveThumbImageError : null;
+    let materialTapTargetSize = opts && 'materialTapTargetSize' in opts ? opts.materialTapTargetSize : null;
+    let thumbColor = opts && 'thumbColor' in opts ? opts.thumbColor : null;
+    let trackColor = opts && 'trackColor' in opts ? opts.trackColor : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[3] || CT.C3;
+    let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : null;
+    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+    let overlayColor = opts && 'overlayColor' in opts ? opts.overlayColor : null;
+    let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+    let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
+    let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$] = value;
+    this[onChanged$] = onChanged;
+    this[activeColor$] = activeColor;
+    this[activeTrackColor$] = activeTrackColor;
+    this[inactiveThumbColor$] = inactiveThumbColor;
+    this[inactiveTrackColor$] = inactiveTrackColor;
+    this[activeThumbImage$] = activeThumbImage;
+    this[onActiveThumbImageError$] = onActiveThumbImageError;
+    this[inactiveThumbImage$] = inactiveThumbImage;
+    this[onInactiveThumbImageError$] = onInactiveThumbImageError;
+    this[materialTapTargetSize$] = materialTapTargetSize;
+    this[thumbColor$] = thumbColor;
+    this[trackColor$] = trackColor;
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[mouseCursor$] = mouseCursor;
+    this[focusColor$] = focusColor;
+    this[hoverColor$] = hoverColor;
+    this[overlayColor$] = overlayColor;
+    this[splashRadius$] = splashRadius;
+    this[focusNode$] = focusNode;
+    this[autofocus$] = autofocus;
+    if (!(autofocus !== null)) dart.assertFailed(null, I[1], 133, 16, "autofocus != null");
+    if (!(activeThumbImage != null || onActiveThumbImageError == null)) dart.assertFailed(null, I[1], 134, 16, "activeThumbImage != null || onActiveThumbImageError == null");
+    if (!(inactiveThumbImage != null || onInactiveThumbImageError == null)) dart.assertFailed(null, I[1], 135, 16, "inactiveThumbImage != null || onInactiveThumbImageError == null");
+    this[_switchType] = $switch$._SwitchType.adaptive;
+    $switch$.Switch.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = $switch$.Switch.prototype;
+  dart.addTypeTests($switch$.Switch);
+  dart.addTypeCaches($switch$.Switch);
+  dart.setMethodSignature($switch$.Switch, () => ({
+    __proto__: dart.getMethods($switch$.Switch.__proto__),
+    [_getSwitchSize]: dart.fnType(ui.Size, [theme_data.ThemeData]),
+    [_buildCupertinoSwitch]: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_buildMaterialSwitch]: dart.fnType(framework.Widget, [framework.BuildContext]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri($switch$.Switch, I[0]);
+  dart.setFieldSignature($switch$.Switch, () => ({
+    __proto__: dart.getFields($switch$.Switch.__proto__),
+    value: dart.finalFieldType(core.bool),
+    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.bool]))),
+    activeColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    activeTrackColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    inactiveThumbColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    inactiveTrackColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    activeThumbImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onActiveThumbImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    inactiveThumbImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onInactiveThumbImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    thumbColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    trackColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    materialTapTargetSize: dart.finalFieldType(dart.nullable(theme_data.MaterialTapTargetSize)),
+    [_switchType$]: dart.finalFieldType($switch$._SwitchType),
+    dragStartBehavior: dart.finalFieldType(recognizer.DragStartBehavior),
+    mouseCursor: dart.finalFieldType(dart.nullable(mouse_cursor.MouseCursor)),
+    focusColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    hoverColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    overlayColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    splashRadius: dart.finalFieldType(dart.nullable(core.double)),
+    focusNode: dart.finalFieldType(dart.nullable(focus_manager.FocusNode)),
+    autofocus: dart.finalFieldType(core.bool)
+  }));
+  var value$0 = dart.privateName($switch$, "_MaterialSwitch.value");
+  var onChanged$0 = dart.privateName($switch$, "_MaterialSwitch.onChanged");
+  var activeColor$0 = dart.privateName($switch$, "_MaterialSwitch.activeColor");
+  var activeTrackColor$0 = dart.privateName($switch$, "_MaterialSwitch.activeTrackColor");
+  var inactiveThumbColor$0 = dart.privateName($switch$, "_MaterialSwitch.inactiveThumbColor");
+  var inactiveTrackColor$0 = dart.privateName($switch$, "_MaterialSwitch.inactiveTrackColor");
+  var activeThumbImage$0 = dart.privateName($switch$, "_MaterialSwitch.activeThumbImage");
+  var onActiveThumbImageError$0 = dart.privateName($switch$, "_MaterialSwitch.onActiveThumbImageError");
+  var inactiveThumbImage$0 = dart.privateName($switch$, "_MaterialSwitch.inactiveThumbImage");
+  var onInactiveThumbImageError$0 = dart.privateName($switch$, "_MaterialSwitch.onInactiveThumbImageError");
+  var thumbColor$0 = dart.privateName($switch$, "_MaterialSwitch.thumbColor");
+  var trackColor$0 = dart.privateName($switch$, "_MaterialSwitch.trackColor");
+  var materialTapTargetSize$0 = dart.privateName($switch$, "_MaterialSwitch.materialTapTargetSize");
+  var dragStartBehavior$0 = dart.privateName($switch$, "_MaterialSwitch.dragStartBehavior");
+  var mouseCursor$0 = dart.privateName($switch$, "_MaterialSwitch.mouseCursor");
+  var focusColor$0 = dart.privateName($switch$, "_MaterialSwitch.focusColor");
+  var hoverColor$0 = dart.privateName($switch$, "_MaterialSwitch.hoverColor");
+  var overlayColor$0 = dart.privateName($switch$, "_MaterialSwitch.overlayColor");
+  var splashRadius$0 = dart.privateName($switch$, "_MaterialSwitch.splashRadius");
+  var focusNode$0 = dart.privateName($switch$, "_MaterialSwitch.focusNode");
+  var autofocus$0 = dart.privateName($switch$, "_MaterialSwitch.autofocus");
+  var size$ = dart.privateName($switch$, "_MaterialSwitch.size");
+  $switch$._MaterialSwitch = class _MaterialSwitch extends framework.StatefulWidget {
+    get value() {
+      return this[value$0];
+    }
+    set value(value) {
+      super.value = value;
+    }
+    get onChanged() {
+      return this[onChanged$0];
+    }
+    set onChanged(value) {
+      super.onChanged = value;
+    }
+    get activeColor() {
+      return this[activeColor$0];
+    }
+    set activeColor(value) {
+      super.activeColor = value;
+    }
+    get activeTrackColor() {
+      return this[activeTrackColor$0];
+    }
+    set activeTrackColor(value) {
+      super.activeTrackColor = value;
+    }
+    get inactiveThumbColor() {
+      return this[inactiveThumbColor$0];
+    }
+    set inactiveThumbColor(value) {
+      super.inactiveThumbColor = value;
+    }
+    get inactiveTrackColor() {
+      return this[inactiveTrackColor$0];
+    }
+    set inactiveTrackColor(value) {
+      super.inactiveTrackColor = value;
+    }
+    get activeThumbImage() {
+      return this[activeThumbImage$0];
+    }
+    set activeThumbImage(value) {
+      super.activeThumbImage = value;
+    }
+    get onActiveThumbImageError() {
+      return this[onActiveThumbImageError$0];
+    }
+    set onActiveThumbImageError(value) {
+      super.onActiveThumbImageError = value;
+    }
+    get inactiveThumbImage() {
+      return this[inactiveThumbImage$0];
+    }
+    set inactiveThumbImage(value) {
+      super.inactiveThumbImage = value;
+    }
+    get onInactiveThumbImageError() {
+      return this[onInactiveThumbImageError$0];
+    }
+    set onInactiveThumbImageError(value) {
+      super.onInactiveThumbImageError = value;
+    }
+    get thumbColor() {
+      return this[thumbColor$0];
+    }
+    set thumbColor(value) {
+      super.thumbColor = value;
+    }
+    get trackColor() {
+      return this[trackColor$0];
+    }
+    set trackColor(value) {
+      super.trackColor = value;
+    }
+    get materialTapTargetSize() {
+      return this[materialTapTargetSize$0];
+    }
+    set materialTapTargetSize(value) {
+      super.materialTapTargetSize = value;
+    }
+    get dragStartBehavior() {
+      return this[dragStartBehavior$0];
+    }
+    set dragStartBehavior(value) {
+      super.dragStartBehavior = value;
+    }
+    get mouseCursor() {
+      return this[mouseCursor$0];
+    }
+    set mouseCursor(value) {
+      super.mouseCursor = value;
+    }
+    get focusColor() {
+      return this[focusColor$0];
+    }
+    set focusColor(value) {
+      super.focusColor = value;
+    }
+    get hoverColor() {
+      return this[hoverColor$0];
+    }
+    set hoverColor(value) {
+      super.hoverColor = value;
+    }
+    get overlayColor() {
+      return this[overlayColor$0];
+    }
+    set overlayColor(value) {
+      super.overlayColor = value;
+    }
+    get splashRadius() {
+      return this[splashRadius$0];
+    }
+    set splashRadius(value) {
+      super.splashRadius = value;
+    }
+    get focusNode() {
+      return this[focusNode$0];
+    }
+    set focusNode(value) {
+      super.focusNode = value;
+    }
+    get autofocus() {
+      return this[autofocus$0];
+    }
+    set autofocus(value) {
+      super.autofocus = value;
+    }
+    get size() {
+      return this[size$];
+    }
+    set size(value) {
+      super.size = value;
+    }
+    createState() {
+      return new $switch$._MaterialSwitchState.new();
+    }
+  };
+  ($switch$._MaterialSwitch.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let size = opts && 'size' in opts ? opts.size : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let activeTrackColor = opts && 'activeTrackColor' in opts ? opts.activeTrackColor : null;
+    let inactiveThumbColor = opts && 'inactiveThumbColor' in opts ? opts.inactiveThumbColor : null;
+    let inactiveTrackColor = opts && 'inactiveTrackColor' in opts ? opts.inactiveTrackColor : null;
+    let activeThumbImage = opts && 'activeThumbImage' in opts ? opts.activeThumbImage : null;
+    let onActiveThumbImageError = opts && 'onActiveThumbImageError' in opts ? opts.onActiveThumbImageError : null;
+    let inactiveThumbImage = opts && 'inactiveThumbImage' in opts ? opts.inactiveThumbImage : null;
+    let onInactiveThumbImageError = opts && 'onInactiveThumbImageError' in opts ? opts.onInactiveThumbImageError : null;
+    let thumbColor = opts && 'thumbColor' in opts ? opts.thumbColor : null;
+    let trackColor = opts && 'trackColor' in opts ? opts.trackColor : null;
+    let materialTapTargetSize = opts && 'materialTapTargetSize' in opts ? opts.materialTapTargetSize : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[3] || CT.C3;
+    let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : null;
+    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+    let overlayColor = opts && 'overlayColor' in opts ? opts.overlayColor : null;
+    let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+    let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
+    let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$0] = value;
+    this[onChanged$0] = onChanged;
+    this[size$] = size;
+    this[activeColor$0] = activeColor;
+    this[activeTrackColor$0] = activeTrackColor;
+    this[inactiveThumbColor$0] = inactiveThumbColor;
+    this[inactiveTrackColor$0] = inactiveTrackColor;
+    this[activeThumbImage$0] = activeThumbImage;
+    this[onActiveThumbImageError$0] = onActiveThumbImageError;
+    this[inactiveThumbImage$0] = inactiveThumbImage;
+    this[onInactiveThumbImageError$0] = onInactiveThumbImageError;
+    this[thumbColor$0] = thumbColor;
+    this[trackColor$0] = trackColor;
+    this[materialTapTargetSize$0] = materialTapTargetSize;
+    this[dragStartBehavior$0] = dragStartBehavior;
+    this[mouseCursor$0] = mouseCursor;
+    this[focusColor$0] = focusColor;
+    this[hoverColor$0] = hoverColor;
+    this[overlayColor$0] = overlayColor;
+    this[splashRadius$0] = splashRadius;
+    this[focusNode$0] = focusNode;
+    this[autofocus$0] = autofocus;
+    if (!(dragStartBehavior !== null)) dart.assertFailed(null, I[1], 477, 16, "dragStartBehavior != null");
+    if (!(activeThumbImage != null || onActiveThumbImageError == null)) dart.assertFailed(null, I[1], 478, 16, "activeThumbImage != null || onActiveThumbImageError == null");
+    if (!(inactiveThumbImage != null || onInactiveThumbImageError == null)) dart.assertFailed(null, I[1], 479, 16, "inactiveThumbImage != null || onInactiveThumbImageError == null");
+    $switch$._MaterialSwitch.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = $switch$._MaterialSwitch.prototype;
+  dart.addTypeTests($switch$._MaterialSwitch);
+  dart.addTypeCaches($switch$._MaterialSwitch);
+  dart.setMethodSignature($switch$._MaterialSwitch, () => ({
+    __proto__: dart.getMethods($switch$._MaterialSwitch.__proto__),
+    createState: dart.fnType(framework.State$(framework.StatefulWidget), [])
+  }));
+  dart.setLibraryUri($switch$._MaterialSwitch, I[0]);
+  dart.setFieldSignature($switch$._MaterialSwitch, () => ({
+    __proto__: dart.getFields($switch$._MaterialSwitch.__proto__),
+    value: dart.finalFieldType(core.bool),
+    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.bool]))),
+    activeColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    activeTrackColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    inactiveThumbColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    inactiveTrackColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    activeThumbImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onActiveThumbImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    inactiveThumbImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onInactiveThumbImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    thumbColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    trackColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    materialTapTargetSize: dart.finalFieldType(dart.nullable(theme_data.MaterialTapTargetSize)),
+    dragStartBehavior: dart.finalFieldType(recognizer.DragStartBehavior),
+    mouseCursor: dart.finalFieldType(dart.nullable(mouse_cursor.MouseCursor)),
+    focusColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    hoverColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    overlayColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    splashRadius: dart.finalFieldType(dart.nullable(core.double)),
+    focusNode: dart.finalFieldType(dart.nullable(focus_manager.FocusNode)),
+    autofocus: dart.finalFieldType(core.bool),
+    size: dart.finalFieldType(ui.Size)
+  }));
+  var _painter = dart.privateName($switch$, "_painter");
+  var _needsPositionAnimation = dart.privateName($switch$, "_needsPositionAnimation");
+  var _handleChanged = dart.privateName($switch$, "_handleChanged");
+  var _widgetThumbColor = dart.privateName($switch$, "_widgetThumbColor");
+  var _defaultThumbColor = dart.privateName($switch$, "_defaultThumbColor");
+  var _widgetTrackColor = dart.privateName($switch$, "_widgetTrackColor");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var _defaultTrackColor = dart.privateName($switch$, "_defaultTrackColor");
+  var _trackInnerLength = dart.privateName($switch$, "_trackInnerLength");
+  var _handleDragStart = dart.privateName($switch$, "_handleDragStart");
+  var _name$2 = dart.privateName(ui, "_name");
+  var _handleDragUpdate = dart.privateName($switch$, "_handleDragUpdate");
+  var _handleDragEnd = dart.privateName($switch$, "_handleDragEnd");
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$($switch$._MaterialSwitch) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$($switch$._MaterialSwitch)[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$($switch$._MaterialSwitch));
+  const State_ToggleableStateMixin$36 = class State_ToggleableStateMixin extends State_TickerProviderStateMixin$36 {};
+  (State_ToggleableStateMixin$36.new = function() {
+    toggleable.ToggleableStateMixin$($switch$._MaterialSwitch)[dart.mixinNew].call(this);
+    State_ToggleableStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_ToggleableStateMixin$36.prototype;
+  dart.applyMixin(State_ToggleableStateMixin$36, toggleable.ToggleableStateMixin$($switch$._MaterialSwitch));
+  $switch$._MaterialSwitchState = class _MaterialSwitchState extends State_ToggleableStateMixin$36 {
+    didUpdateWidget(oldWidget) {
+      let t0;
+      $switch$._MaterialSwitch.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (oldWidget.value !== this.widget.value) {
+        if (this.position.value === 0.0 || this.position.value === 1.0) {
+          t0 = this.position;
+          (() => {
+            t0.curve = curves.Curves.easeIn;
+            t0.reverseCurve = curves.Curves.easeOut;
+            return t0;
+          })();
+        }
+        this.animateToValue();
+      }
+    }
+    dispose() {
+      this[_painter].dispose();
+      super.dispose();
+    }
+    get onChanged() {
+      return this.widget.onChanged != null ? dart.bind(this, _handleChanged) : null;
+    }
+    get tristate() {
+      return false;
+    }
+    get value() {
+      return this.widget.value;
+    }
+    get [_widgetThumbColor]() {
+      return material_state.MaterialStateProperty.resolveWith(T.ColorN(), dart.fn(states => {
+        if (states.contains(material_state.MaterialState.disabled)) {
+          return this.widget.inactiveThumbColor;
+        }
+        if (states.contains(material_state.MaterialState.selected)) {
+          return this.widget.activeColor;
+        }
+        return this.widget.inactiveThumbColor;
+      }, T.SetOfMaterialStateToColorN()));
+    }
+    get [_defaultThumbColor]() {
+      let theme = theme$.Theme.of(this.context);
+      let isDark = theme.brightness === ui.Brightness.dark;
+      return material_state.MaterialStateProperty.resolveWith(ui.Color, dart.fn(states => {
+        if (states.contains(material_state.MaterialState.disabled)) {
+          return isDark ? colors.Colors.grey.shade800 : colors.Colors.grey.shade400;
+        }
+        if (states.contains(material_state.MaterialState.selected)) {
+          return theme.toggleableActiveColor;
+        }
+        return isDark ? colors.Colors.grey.shade400 : colors.Colors.grey.shade50;
+      }, T.SetOfMaterialStateToColor()));
+    }
+    get [_widgetTrackColor]() {
+      return material_state.MaterialStateProperty.resolveWith(T.ColorN(), dart.fn(states => {
+        if (states.contains(material_state.MaterialState.disabled)) {
+          return this.widget.inactiveTrackColor;
+        }
+        if (states.contains(material_state.MaterialState.selected)) {
+          return this.widget.activeTrackColor;
+        }
+        return this.widget.inactiveTrackColor;
+      }, T.SetOfMaterialStateToColorN()));
+    }
+    get [_defaultTrackColor]() {
+      let theme = theme$.Theme.of(this.context);
+      let isDark = theme.brightness === ui.Brightness.dark;
+      let black32 = C[56] || CT.C56;
+      return material_state.MaterialStateProperty.resolveWith(ui.Color, dart.fn(states => {
+        let t0, t0$;
+        if (states.contains(material_state.MaterialState.disabled)) {
+          return isDark ? colors.Colors.white10 : colors.Colors.black12;
+        }
+        if (states.contains(material_state.MaterialState.selected)) {
+          let activeState = (t0 = states, (() => {
+            t0.add(material_state.MaterialState.selected);
+            return t0;
+          })());
+          let activeColor = (t0$ = this[_widgetThumbColor].resolve(activeState), t0$ == null ? this[_defaultThumbColor].resolve(activeState) : t0$);
+          return activeColor.withAlpha(128);
+        }
+        return isDark ? colors.Colors.white30 : black32;
+      }, T.SetOfMaterialStateToColor()));
+    }
+    get [_trackInnerLength]() {
+      return this.widget.size.width - 40;
+    }
+    [_handleDragStart](details) {
+      if (this.isInteractive) this.reactionController.forward();
+    }
+    [_handleDragUpdate](details) {
+      let t0, t0$, t0$0;
+      if (this.isInteractive) {
+        t0 = this.position;
+        (() => {
+          t0.curve = curves.Curves.linear;
+          t0.reverseCurve = null;
+          return t0;
+        })();
+        let delta = dart.nullCheck(details.primaryDelta) / this[_trackInnerLength];
+        switch (basic.Directionality.of(this.context)) {
+          case C[57] || CT.C57:
+          {
+            t0$ = this.positionController;
+            t0$.value = t0$.value - delta;
+            break;
+          }
+          case C[58] || CT.C58:
+          {
+            t0$0 = this.positionController;
+            t0$0.value = t0$0.value + delta;
+            break;
+          }
+        }
+      }
+    }
+    [_handleDragEnd](details) {
+      if (this.position.value >= 0.5 !== this.widget.value) {
+        dart.nullCheck(this.widget.onChanged)(!this.widget.value);
+        this.setState(dart.fn(() => {
+          this[_needsPositionAnimation] = true;
+        }, T.VoidTovoid()));
+      } else {
+        this.animateToValue();
+      }
+      this.reactionController.reverse();
+    }
+    [_handleChanged](value) {
+      if (!(value != null)) dart.assertFailed(null, I[1], 641, 12, "value != null");
+      if (!(this.widget.onChanged != null)) dart.assertFailed(null, I[1], 642, 12, "widget.onChanged != null");
+      dart.nullCheck(this.widget.onChanged)(dart.nullCheck(value));
+    }
+    build(context) {
+      let t0, t0$, t0$0, t0$1, t1, t0$2, t0$3, t0$4, t0$5, t1$, t0$6, t0$7, t0$8, t0$9, t1$0, t0$10, t0$11, t0$12, t0$13, t1$1, t0$14, t0$15, t0$16, t0$17, t0$18, t1$2, t0$19, t0$20, t0$21, t0$22, t0$23, t1$3, t0$24, t0$25, t0$26, t0$27, t1$4, t0$28, t0$29, t0$30, t0$31, t1$5, t0$32, t0$33, t1$6, t1$7, t0$34;
+      if (!debug.debugCheckHasMaterial(context)) dart.assertFailed(null, I[1], 648, 12, "debugCheckHasMaterial(context)");
+      if (this[_needsPositionAnimation]) {
+        this[_needsPositionAnimation] = false;
+        this.animateToValue();
+      }
+      let theme = theme$.Theme.of(context);
+      let activeStates = (t0 = this.states, (() => {
+        t0.add(material_state.MaterialState.selected);
+        return t0;
+      })());
+      let inactiveStates = (t0$ = this.states, (() => {
+        t0$.remove(material_state.MaterialState.selected);
+        return t0$;
+      })());
+      let effectiveActiveThumbColor = (t0$3 = (t0$2 = (t0$1 = (t0$0 = this.widget.thumbColor, t0$0 == null ? null : t0$0.resolve(activeStates)), t0$1 == null ? this[_widgetThumbColor].resolve(activeStates) : t0$1), t0$2 == null ? (t1 = theme.switchTheme.thumbColor, t1 == null ? null : t1.resolve(activeStates)) : t0$2), t0$3 == null ? this[_defaultThumbColor].resolve(activeStates) : t0$3);
+      let effectiveInactiveThumbColor = (t0$7 = (t0$6 = (t0$5 = (t0$4 = this.widget.thumbColor, t0$4 == null ? null : t0$4.resolve(inactiveStates)), t0$5 == null ? this[_widgetThumbColor].resolve(inactiveStates) : t0$5), t0$6 == null ? (t1$ = theme.switchTheme.thumbColor, t1$ == null ? null : t1$.resolve(inactiveStates)) : t0$6), t0$7 == null ? this[_defaultThumbColor].resolve(inactiveStates) : t0$7);
+      let effectiveActiveTrackColor = (t0$11 = (t0$10 = (t0$9 = (t0$8 = this.widget.trackColor, t0$8 == null ? null : t0$8.resolve(activeStates)), t0$9 == null ? this[_widgetTrackColor].resolve(activeStates) : t0$9), t0$10 == null ? (t1$0 = theme.switchTheme.trackColor, t1$0 == null ? null : t1$0.resolve(activeStates)) : t0$10), t0$11 == null ? this[_defaultTrackColor].resolve(activeStates) : t0$11);
+      let effectiveInactiveTrackColor = (t0$15 = (t0$14 = (t0$13 = (t0$12 = this.widget.trackColor, t0$12 == null ? null : t0$12.resolve(inactiveStates)), t0$13 == null ? this[_widgetTrackColor].resolve(inactiveStates) : t0$13), t0$14 == null ? (t1$1 = theme.switchTheme.trackColor, t1$1 == null ? null : t1$1.resolve(inactiveStates)) : t0$14), t0$15 == null ? this[_defaultTrackColor].resolve(inactiveStates) : t0$15);
+      let focusedStates = (t0$16 = this.states, (() => {
+        t0$16.add(material_state.MaterialState.focused);
+        return t0$16;
+      })());
+      let effectiveFocusOverlayColor = (t0$20 = (t0$19 = (t0$18 = (t0$17 = this.widget.overlayColor, t0$17 == null ? null : t0$17.resolve(focusedStates)), t0$18 == null ? this.widget.focusColor : t0$18), t0$19 == null ? (t1$2 = theme.switchTheme.overlayColor, t1$2 == null ? null : t1$2.resolve(focusedStates)) : t0$19), t0$20 == null ? theme.focusColor : t0$20);
+      let hoveredStates = (t0$21 = this.states, (() => {
+        t0$21.add(material_state.MaterialState.hovered);
+        return t0$21;
+      })());
+      let effectiveHoverOverlayColor = (t0$25 = (t0$24 = (t0$23 = (t0$22 = this.widget.overlayColor, t0$22 == null ? null : t0$22.resolve(hoveredStates)), t0$23 == null ? this.widget.hoverColor : t0$23), t0$24 == null ? (t1$3 = theme.switchTheme.overlayColor, t1$3 == null ? null : t1$3.resolve(hoveredStates)) : t0$24), t0$25 == null ? theme.hoverColor : t0$25);
+      let activePressedStates = (t0$26 = activeStates, (() => {
+        t0$26.add(material_state.MaterialState.pressed);
+        return t0$26;
+      })());
+      let effectiveActivePressedOverlayColor = (t0$29 = (t0$28 = (t0$27 = this.widget.overlayColor, t0$27 == null ? null : t0$27.resolve(activePressedStates)), t0$28 == null ? (t1$4 = theme.switchTheme.overlayColor, t1$4 == null ? null : t1$4.resolve(activePressedStates)) : t0$28), t0$29 == null ? effectiveActiveThumbColor.withAlpha(31) : t0$29);
+      let inactivePressedStates = (t0$30 = inactiveStates, (() => {
+        t0$30.add(material_state.MaterialState.pressed);
+        return t0$30;
+      })());
+      let effectiveInactivePressedOverlayColor = (t0$33 = (t0$32 = (t0$31 = this.widget.overlayColor, t0$31 == null ? null : t0$31.resolve(inactivePressedStates)), t0$32 == null ? (t1$5 = theme.switchTheme.overlayColor, t1$5 == null ? null : t1$5.resolve(inactivePressedStates)) : t0$32), t0$33 == null ? effectiveActiveThumbColor.withAlpha(31) : t0$33);
+      let effectiveMouseCursor = material_state.MaterialStateProperty.resolveWith(mouse_cursor.MouseCursor, dart.fn(states => {
+        let t1, t0, t0$;
+        t0$ = (t0 = material_state.MaterialStateProperty.resolveAs(T.MouseCursorN(), this.widget.mouseCursor, states), t0 == null ? (t1 = theme.switchTheme.mouseCursor, t1 == null ? null : t1.resolve(states)) : t0);
+        return t0$ == null ? material_state.MaterialStateProperty.resolveAs(mouse_cursor.MouseCursor, material_state.MaterialStateMouseCursor.clickable, states) : t0$;
+      }, T.SetOfMaterialStateToMouseCursor()));
+      return new basic.Semantics.new({toggled: this.widget.value, child: new gesture_detector.GestureDetector.new({excludeFromSemantics: true, onHorizontalDragStart: dart.bind(this, _handleDragStart), onHorizontalDragUpdate: dart.bind(this, _handleDragUpdate), onHorizontalDragEnd: dart.bind(this, _handleDragEnd), dragStartBehavior: this.widget.dragStartBehavior, child: this.buildToggleable({mouseCursor: effectiveMouseCursor, focusNode: this.widget.focusNode, autofocus: this.widget.autofocus, size: this.widget.size, painter: (t0$34 = this[_painter], (() => {
+              t0$34.position = this.position;
+              t0$34.reaction = this.reaction;
+              t0$34.reactionFocusFade = this.reactionFocusFade;
+              t0$34.reactionHoverFade = this.reactionHoverFade;
+              t0$34.inactiveReactionColor = effectiveInactivePressedOverlayColor;
+              t0$34.reactionColor = effectiveActivePressedOverlayColor;
+              t0$34.hoverColor = effectiveHoverOverlayColor;
+              t0$34.focusColor = effectiveFocusOverlayColor;
+              t0$34.splashRadius = (t1$7 = (t1$6 = this.widget.splashRadius, t1$6 == null ? theme.switchTheme.splashRadius : t1$6), t1$7 == null ? 20 : t1$7);
+              t0$34.downPosition = this.downPosition;
+              t0$34.isFocused = this.states.contains(material_state.MaterialState.focused);
+              t0$34.isHovered = this.states.contains(material_state.MaterialState.hovered);
+              t0$34.activeColor = effectiveActiveThumbColor;
+              t0$34.inactiveColor = effectiveInactiveThumbColor;
+              t0$34.activeThumbImage = this.widget.activeThumbImage;
+              t0$34.onActiveThumbImageError = this.widget.onActiveThumbImageError;
+              t0$34.inactiveThumbImage = this.widget.inactiveThumbImage;
+              t0$34.onInactiveThumbImageError = this.widget.onInactiveThumbImageError;
+              t0$34.activeTrackColor = effectiveActiveTrackColor;
+              t0$34.inactiveTrackColor = effectiveInactiveTrackColor;
+              t0$34.configuration = image.createLocalImageConfiguration(context);
+              t0$34.isInteractive = this.isInteractive;
+              t0$34.trackInnerLength = this[_trackInnerLength];
+              t0$34.textDirection = basic.Directionality.of(context);
+              t0$34.surfaceColor = theme.colorScheme.surface;
+              return t0$34;
+            })())}), $creationLocationd_0dea112b090073317d4: C[59] || CT.C59}), $creationLocationd_0dea112b090073317d4: C[67] || CT.C67});
+    }
+  };
+  ($switch$._MaterialSwitchState.new = function() {
+    this[_painter] = new $switch$._SwitchPainter.new();
+    this[_needsPositionAnimation] = false;
+    $switch$._MaterialSwitchState.__proto__.new.call(this);
+    ;
+  }).prototype = $switch$._MaterialSwitchState.prototype;
+  dart.addTypeTests($switch$._MaterialSwitchState);
+  dart.addTypeCaches($switch$._MaterialSwitchState);
+  dart.setMethodSignature($switch$._MaterialSwitchState, () => ({
+    __proto__: dart.getMethods($switch$._MaterialSwitchState.__proto__),
+    [_handleDragStart]: dart.fnType(dart.void, [drag_details.DragStartDetails]),
+    [_handleDragUpdate]: dart.fnType(dart.void, [drag_details.DragUpdateDetails]),
+    [_handleDragEnd]: dart.fnType(dart.void, [drag_details.DragEndDetails]),
+    [_handleChanged]: dart.fnType(dart.void, [dart.nullable(core.bool)]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature($switch$._MaterialSwitchState, () => ({
+    __proto__: dart.getGetters($switch$._MaterialSwitchState.__proto__),
+    onChanged: dart.nullable(dart.fnType(dart.void, [dart.nullable(core.bool)])),
+    tristate: core.bool,
+    value: dart.nullable(core.bool),
+    [_widgetThumbColor]: material_state.MaterialStateProperty$(dart.nullable(ui.Color)),
+    [_defaultThumbColor]: material_state.MaterialStateProperty$(ui.Color),
+    [_widgetTrackColor]: material_state.MaterialStateProperty$(dart.nullable(ui.Color)),
+    [_defaultTrackColor]: material_state.MaterialStateProperty$(ui.Color),
+    [_trackInnerLength]: core.double
+  }));
+  dart.setLibraryUri($switch$._MaterialSwitchState, I[0]);
+  dart.setFieldSignature($switch$._MaterialSwitchState, () => ({
+    __proto__: dart.getFields($switch$._MaterialSwitchState.__proto__),
+    [_painter]: dart.finalFieldType($switch$._SwitchPainter),
+    [_needsPositionAnimation]: dart.fieldType(core.bool)
+  }));
+  var _activeThumbImage = dart.privateName($switch$, "_activeThumbImage");
+  var _onActiveThumbImageError = dart.privateName($switch$, "_onActiveThumbImageError");
+  var _inactiveThumbImage = dart.privateName($switch$, "_inactiveThumbImage");
+  var _onInactiveThumbImageError = dart.privateName($switch$, "_onInactiveThumbImageError");
+  var _activeTrackColor = dart.privateName($switch$, "_activeTrackColor");
+  var _inactiveTrackColor = dart.privateName($switch$, "_inactiveTrackColor");
+  var _configuration = dart.privateName($switch$, "_configuration");
+  var _textDirection = dart.privateName($switch$, "_textDirection");
+  var _surfaceColor = dart.privateName($switch$, "_surfaceColor");
+  var _isInteractive = dart.privateName($switch$, "_isInteractive");
+  var _cachedThumbColor = dart.privateName($switch$, "_cachedThumbColor");
+  var _cachedThumbImage = dart.privateName($switch$, "_cachedThumbImage");
+  var _cachedThumbErrorListener = dart.privateName($switch$, "_cachedThumbErrorListener");
+  var _cachedThumbPainter = dart.privateName($switch$, "_cachedThumbPainter");
+  var _isPainting = dart.privateName($switch$, "_isPainting");
+  var _createDefaultThumbDecoration = dart.privateName($switch$, "_createDefaultThumbDecoration");
+  var _handleDecorationChanged = dart.privateName($switch$, "_handleDecorationChanged");
+  var Radius_y = dart.privateName(ui, "Radius.y");
+  var Radius_x = dart.privateName(ui, "Radius.x");
+  var _repaint = dart.privateName($switch$, "_repaint");
+  var _repaint$ = dart.privateName(custom_paint, "_repaint");
+  $switch$._SwitchPainter = class _SwitchPainter extends toggleable.ToggleablePainter {
+    get activeThumbImage() {
+      return this[_activeThumbImage];
+    }
+    set activeThumbImage(value) {
+      if (dart.equals(value, this[_activeThumbImage])) return;
+      this[_activeThumbImage] = value;
+      this.notifyListeners();
+    }
+    get onActiveThumbImageError() {
+      return this[_onActiveThumbImageError];
+    }
+    set onActiveThumbImageError(value) {
+      if (dart.equals(value, this[_onActiveThumbImageError])) {
+        return;
+      }
+      this[_onActiveThumbImageError] = value;
+      this.notifyListeners();
+    }
+    get inactiveThumbImage() {
+      return this[_inactiveThumbImage];
+    }
+    set inactiveThumbImage(value) {
+      if (dart.equals(value, this[_inactiveThumbImage])) return;
+      this[_inactiveThumbImage] = value;
+      this.notifyListeners();
+    }
+    get onInactiveThumbImageError() {
+      return this[_onInactiveThumbImageError];
+    }
+    set onInactiveThumbImageError(value) {
+      if (dart.equals(value, this[_onInactiveThumbImageError])) {
+        return;
+      }
+      this[_onInactiveThumbImageError] = value;
+      this.notifyListeners();
+    }
+    get activeTrackColor() {
+      return dart.nullCheck(this[_activeTrackColor]);
+    }
+    set activeTrackColor(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 793, 12, "value != null");
+      if (value._equals(this[_activeTrackColor])) return;
+      this[_activeTrackColor] = value;
+      this.notifyListeners();
+    }
+    get inactiveTrackColor() {
+      return dart.nullCheck(this[_inactiveTrackColor]);
+    }
+    set inactiveTrackColor(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 803, 12, "value != null");
+      if (value._equals(this[_inactiveTrackColor])) return;
+      this[_inactiveTrackColor] = value;
+      this.notifyListeners();
+    }
+    get configuration() {
+      return dart.nullCheck(this[_configuration]);
+    }
+    set configuration(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 813, 12, "value != null");
+      if (value._equals(this[_configuration])) return;
+      this[_configuration] = value;
+      this.notifyListeners();
+    }
+    get textDirection() {
+      return dart.nullCheck(this[_textDirection]);
+    }
+    set textDirection(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 823, 12, "value != null");
+      if (this[_textDirection] === value) return;
+      this[_textDirection] = value;
+      this.notifyListeners();
+    }
+    get surfaceColor() {
+      return dart.nullCheck(this[_surfaceColor]);
+    }
+    set surfaceColor(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 833, 12, "value != null");
+      if (value._equals(this[_surfaceColor])) return;
+      this[_surfaceColor] = value;
+      this.notifyListeners();
+    }
+    get isInteractive() {
+      return dart.nullCheck(this[_isInteractive]);
+    }
+    set isInteractive(value) {
+      if (value === this[_isInteractive]) {
+        return;
+      }
+      this[_isInteractive] = value;
+      this.notifyListeners();
+    }
+    get trackInnerLength() {
+      return dart.nullCheck(this[_trackInnerLength]);
+    }
+    set trackInnerLength(value) {
+      if (value === this[_trackInnerLength]) {
+        return;
+      }
+      this[_trackInnerLength] = value;
+      this.notifyListeners();
+    }
+    [_createDefaultThumbDecoration](color, image, errorListener) {
+      return new box_decoration.BoxDecoration.new({color: color, image: image == null ? null : new decoration_image.DecorationImage.new({image: image, onError: errorListener}), shape: box_border.BoxShape.circle, boxShadow: shadows.kElevationToShadow[$_get](1)});
+    }
+    [_handleDecorationChanged]() {
+      if (!this[_isPainting]) this.notifyListeners();
+    }
+    paint(canvas, size) {
+      let t0;
+      let isEnabled = this.isInteractive;
+      let currentValue = this.position.value;
+      let visualPosition = null;
+      switch (this.textDirection) {
+        case C[57] || CT.C57:
+        {
+          visualPosition = 1.0 - currentValue;
+          break;
+        }
+        case C[58] || CT.C58:
+        {
+          visualPosition = currentValue;
+          break;
+        }
+      }
+      let trackColor = dart.nullCheck(ui.Color.lerp(this.inactiveTrackColor, this.activeTrackColor, currentValue));
+      let lerpedThumbColor = dart.nullCheck(ui.Color.lerp(this.inactiveColor, this.activeColor, currentValue));
+      let thumbColor = ui.Color.alphaBlend(lerpedThumbColor, this.surfaceColor);
+      let thumbImage = isEnabled ? currentValue < 0.5 ? this.inactiveThumbImage : this.activeThumbImage : this.inactiveThumbImage;
+      let thumbErrorListener = isEnabled ? currentValue < 0.5 ? this.onInactiveThumbImageError : this.onActiveThumbImageError : this.onInactiveThumbImageError;
+      let paint = (t0 = ui.Paint.new(), (() => {
+        t0.color = trackColor;
+        return t0;
+      })());
+      let trackRect = new ui.Rect.fromLTWH(13, (size.height - 14) / 2.0, size.width - 2.0 * 13, 14);
+      let trackRRect = new ui.RRect.fromRectAndRadius(trackRect, C[71] || CT.C71);
+      canvas.drawRRect(trackRRect, paint);
+      let thumbPosition = new ui.Offset.new(20 + visualPosition * this.trackInnerLength, size.height / 2.0);
+      this.paintRadialReaction({canvas: canvas, origin: thumbPosition});
+      try {
+        this[_isPainting] = true;
+        if (this[_cachedThumbPainter] == null || !thumbColor._equals(this[_cachedThumbColor]) || !dart.equals(thumbImage, this[_cachedThumbImage]) || !dart.equals(thumbErrorListener, this[_cachedThumbErrorListener])) {
+          this[_cachedThumbColor] = thumbColor;
+          this[_cachedThumbImage] = thumbImage;
+          this[_cachedThumbErrorListener] = thumbErrorListener;
+          this[_cachedThumbPainter] = this[_createDefaultThumbDecoration](thumbColor, thumbImage, thumbErrorListener).createBoxPainter(dart.bind(this, _handleDecorationChanged));
+        }
+        let thumbPainter = dart.nullCheck(this[_cachedThumbPainter]);
+        let inset = 1.0 - (currentValue - 0.5)[$abs]() * 2.0;
+        let radius = 10 - inset;
+        thumbPainter.paint(canvas, thumbPosition['-'](new ui.Offset.new(radius, radius)), this.configuration.copyWith({size: new ui.Size.fromRadius(radius)}));
+      } finally {
+        this[_isPainting] = false;
+      }
+    }
+    get [_repaint$]() {
+      return T.ListenableN().as(this[$noSuchMethod](new core._Invocation.getter(C[72] || CT.C72)));
+    }
+  };
+  ($switch$._SwitchPainter.new = function() {
+    this[_activeThumbImage] = null;
+    this[_onActiveThumbImageError] = null;
+    this[_inactiveThumbImage] = null;
+    this[_onInactiveThumbImageError] = null;
+    this[_activeTrackColor] = null;
+    this[_inactiveTrackColor] = null;
+    this[_configuration] = null;
+    this[_textDirection] = null;
+    this[_surfaceColor] = null;
+    this[_isInteractive] = null;
+    this[_trackInnerLength] = null;
+    this[_cachedThumbColor] = null;
+    this[_cachedThumbImage] = null;
+    this[_cachedThumbErrorListener] = null;
+    this[_cachedThumbPainter] = null;
+    this[_isPainting] = false;
+    $switch$._SwitchPainter.__proto__.new.call(this);
+    ;
+  }).prototype = $switch$._SwitchPainter.prototype;
+  dart.addTypeTests($switch$._SwitchPainter);
+  dart.addTypeCaches($switch$._SwitchPainter);
+  dart.setMethodSignature($switch$._SwitchPainter, () => ({
+    __proto__: dart.getMethods($switch$._SwitchPainter.__proto__),
+    [_createDefaultThumbDecoration]: dart.fnType(box_decoration.BoxDecoration, [ui.Color, dart.nullable(image_provider.ImageProvider$(core.Object)), dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))]),
+    [_handleDecorationChanged]: dart.fnType(dart.void, []),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size])
+  }));
+  dart.setGetterSignature($switch$._SwitchPainter, () => ({
+    __proto__: dart.getGetters($switch$._SwitchPainter.__proto__),
+    activeThumbImage: dart.nullable(image_provider.ImageProvider$(core.Object)),
+    onActiveThumbImageError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])),
+    inactiveThumbImage: dart.nullable(image_provider.ImageProvider$(core.Object)),
+    onInactiveThumbImageError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])),
+    activeTrackColor: ui.Color,
+    inactiveTrackColor: ui.Color,
+    configuration: image_provider.ImageConfiguration,
+    textDirection: ui.TextDirection,
+    surfaceColor: ui.Color,
+    isInteractive: core.bool,
+    trackInnerLength: core.double,
+    [_repaint$]: dart.nullable(change_notifier.Listenable)
+  }));
+  dart.setSetterSignature($switch$._SwitchPainter, () => ({
+    __proto__: dart.getSetters($switch$._SwitchPainter.__proto__),
+    activeThumbImage: dart.nullable(image_provider.ImageProvider$(core.Object)),
+    onActiveThumbImageError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])),
+    inactiveThumbImage: dart.nullable(image_provider.ImageProvider$(core.Object)),
+    onInactiveThumbImageError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])),
+    activeTrackColor: ui.Color,
+    inactiveTrackColor: ui.Color,
+    configuration: image_provider.ImageConfiguration,
+    textDirection: ui.TextDirection,
+    surfaceColor: ui.Color,
+    isInteractive: core.bool,
+    trackInnerLength: core.double
+  }));
+  dart.setLibraryUri($switch$._SwitchPainter, I[0]);
+  dart.setFieldSignature($switch$._SwitchPainter, () => ({
+    __proto__: dart.getFields($switch$._SwitchPainter.__proto__),
+    [_activeThumbImage]: dart.fieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    [_onActiveThumbImageError]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    [_inactiveThumbImage]: dart.fieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    [_onInactiveThumbImageError]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    [_activeTrackColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_inactiveTrackColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_configuration]: dart.fieldType(dart.nullable(image_provider.ImageConfiguration)),
+    [_textDirection]: dart.fieldType(dart.nullable(ui.TextDirection)),
+    [_surfaceColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_isInteractive]: dart.fieldType(dart.nullable(core.bool)),
+    [_trackInnerLength]: dart.fieldType(dart.nullable(core.double)),
+    [_cachedThumbColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_cachedThumbImage]: dart.fieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    [_cachedThumbErrorListener]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    [_cachedThumbPainter]: dart.fieldType(dart.nullable(decoration.BoxPainter)),
+    [_isPainting]: dart.fieldType(core.bool)
+  }));
+  dart.defineLazy($switch$, {
+    /*$switch$._kTrackHeight*/get _kTrackHeight() {
+      return 14;
+    },
+    /*$switch$._kTrackWidth*/get _kTrackWidth() {
+      return 33;
+    },
+    /*$switch$._kTrackRadius*/get _kTrackRadius() {
+      return 7;
+    },
+    /*$switch$._kThumbRadius*/get _kThumbRadius() {
+      return 10;
+    },
+    /*$switch$._kSwitchMinSize*/get _kSwitchMinSize() {
+      return 40;
+    },
+    /*$switch$._kSwitchWidth*/get _kSwitchWidth() {
+      return 59;
+    },
+    /*$switch$._kSwitchHeight*/get _kSwitchHeight() {
+      return 48;
+    },
+    /*$switch$._kSwitchHeightCollapsed*/get _kSwitchHeightCollapsed() {
+      return 40;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/switch.dart", {
+    "package:flutter/src/material/switch.dart": $switch$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["switch.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA2BsC;;8CAAjC;;;;EAAiC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAkHzB;;;;;;IAwBe;;;;;;IAQb;;;;;;IAUA;;;;;;IAUA;;;;;;IAUA;;;;;;IAKQ;;;;;;IAIK;;;;;;IAKL;;;;;;IAIK;;;;;;IAsBW;;;;;;IAsBA;;;;;;IAaR;;;;;;IAEX;;;;;;IAGM;;;;;;IAuBL;;;;;;IAUN;;;;;;IAUA;;;;;;IAmBwB;;;;;;IAQvB;;;;;;IAGG;;;;;;IAGN;;;;;;qBAEmB;;AACA,4CAE1B,OADA,iCAD2D,aACxD,AAAM,AAAY,KAAb,0CAAR,cACG,AAAM,KAAD;AACV,cAAQ,8BAA8B;;;AAElC;;;;AAEA;;;IAEN;4BAE0C;AAC7B,iBAAO,qBAAqB,gBAAG,OAAO;AACjD,YAAO,uCACM,2BACA,uBACJ,oCACE,AAAK,IAAD,gBACH,AAAK,IAAD,oBACS,mCACd,oDACgB,+BACZ,uBACI,6BACE,8BACD;IAItB;2BAEyC;AACvC,YAAO,0CACE,uBACI,sBACL,qBAAqB,gBAAG,OAAO,iBACxB,oCACK,2CACE,6CACA,2CACF,gDACO,kDACL,oDACO,4CACf,6BACA,wCACW,+CACJ,qCACN,8BACD,6BACA,+BACE,iCACA,8BACH,2BACA;IAEf;UAG0B;AACxB,cAAQ;;;AAEJ,gBAAO,4BAAqB,OAAO;;;;;AAGnB,wBAAc,gBAAG,OAAO;AACxC,kBAAO,AAAM,AAAS,KAAV;AACZ,oBAAQ,AAAM,KAAD;;;;;;AAKT,sBAAO,4BAAqB,OAAO;;;;;AAGnC,sBAAO,6BAAsB,OAAO;;;;;;IAI9C;wBAGqD;AACd,MAA/B,0BAAoB,UAAU;AAC6D,MAAjG,AAAW,UAAD,KAAK,iCAAa,iBAAgB,oBAAe,eAAe,iBAAiB;AACO,MAAlG,AAAW,UAAD,KAAK,6CAAuC,aAAa,yBAAmB;IACxF;;;QA9XO;QACS;QACA;QACT;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;IApBS;IACA;IACT;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACW,oBAAc;UACnB,AAAkB,iBAAD;UACjB,AAAyB,gBAAT,YAAY,AAAwB,uBAAD;UACnD,AAA2B,kBAAT,YAAY,AAA0B,yBAAD;AAC9D,mDAAW,GAAG;;EAAC;;QAkBd;QACS;QACA;QACT;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;IApBS;IACA;IACT;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;UACM,AAAU,SAAD;UACT,AAAyB,gBAAT,YAAY,AAAwB,uBAAD;UACnD,AAA2B,kBAAT,YAAY,AAA0B,yBAAD;IACl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","file":"../../../../../../../../packages/flutter/src/material/switch.dart.lib.js"}');
+  // Exports:
+  return {
+    src__material__switch: $switch$
+  };
+}));
+
+//# sourceMappingURL=switch.dart.lib.js.map

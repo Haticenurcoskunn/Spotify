@@ -30,8 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.1.4
   percent_indicator: ^3.0.1
+  audioplayers: ^0.17.2
   
-
+  - assets/sounds/angela.mp3
 
 dev_dependencies:
   flutter_test:

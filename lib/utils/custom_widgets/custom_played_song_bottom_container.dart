@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:spotify/pages/spotify_playlist_page/controllers/playList_controller.dart';
-import 'package:spotify/played_song_page/main_played_song_page.dart';
+import 'package:spotify/pages/playlist_page/controllers/playList_controller.dart';
+import 'package:spotify/pages/played_song_page/played_song_page.dart';
 import 'custom_icon_button.dart';
 
-GestureDetector bottomPlayedSongContainer(BuildContext context) {
+GestureDetector bottomPlayedSongInfo(BuildContext context) {
   var playListController = Get.put(PlayListController());
   //ListTile
   return GestureDetector(
@@ -15,7 +15,8 @@ GestureDetector bottomPlayedSongContainer(BuildContext context) {
       );
     },
     child: Container(
-      height: MediaQuery.of(context).size.height / 12,
+      height: MediaQuery.of(context).size.height / 3,
+      width:MediaQuery.of(context).size.width,
       color: Colors.grey[800],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

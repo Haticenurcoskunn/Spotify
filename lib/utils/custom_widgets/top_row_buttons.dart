@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-
 import 'custom_icon_button.dart';
-
-Row topButtons(IconData icon, IconData iconSecond) {
+Row rightTopTwoButtons( IconData icon,IconData iconSecond,Function() onPressed) {
   return Row(
     children: [
       buildIconButton(
         icon,
-        onPressed: () {},
+        onPressed: (){},
       ),
-      buildIconButton(iconSecond, onPressed: () {}),
+      buildIconButton(iconSecond,
+       onPressed: onPressed),
     ],
   );
 }

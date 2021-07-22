@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
 //daha rahat parametre vermek için sırası önemli değil ,parantez dışındaki verilmek zorunda ama isimlendirilmiş değil ama çağırıken icondata diyemezsssin
-buildIconButton(IconData iconData, {Color color = Colors.white, required Function() onPressed}) {
+buildIconButton(IconData iconData,{Color color = Colors.white, required Function() onPressed}) {
   return IconButton(onPressed: onPressed, icon: Icon(iconData), color: color);
 }

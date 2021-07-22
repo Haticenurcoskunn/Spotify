@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:spotify/search/searchPage.dart';
-import 'package:spotify/spotifyLibrary/libraryPage.dart';
+import 'package:spotify/pages/search_page/search_page.dart';
+import 'package:spotify/pages/library_page/library_page.dart';
 import 'package:spotify/pages/home_page/home_page.dart';
+import 'package:spotify/utils/custom_widgets/custom_played_song_bottom_container.dart';
 
-class SpotifyNavigation extends StatefulWidget {
+class Spotify extends StatefulWidget {
   @override
-  _TabsDemoScreenState createState() => _TabsDemoScreenState();
+  SpotifyState createState() => SpotifyState();
 }
 
-class _TabsDemoScreenState extends State<SpotifyNavigation> {
+class SpotifyState extends State<Spotify> {
   int currentTabIndex = 0;
 
   List<Widget> tabs = [
-    SpotifyMainPage(),
-    SpotifySearchPage(),
-    SpotifyLibrary(),
+    HomePage(),
+    SearchPage(),
+    LibraryPage(),
   ];
 
   onTapped(int index) {
@@ -26,13 +27,21 @@ class _TabsDemoScreenState extends State<SpotifyNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: tabs[currentTabIndex],
+      resizeToAvoidBottomInset: false,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          tabs[currentTabIndex],
+          bottomPlayedSongInfo(context),
+        ],
+      ),
+     
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTapped,
         unselectedItemColor: Colors.white,
         selectedItemColor: Colors.white,
         currentIndex: currentTabIndex,
-        backgroundColor: Colors.grey[800],
+        backgroundColor: Colors.grey[850],
         items: [buildBottomNavigatorBarItem('Ana Sayfa', Icons.home), buildBottomNavigatorBarItem('Ara', Icons.search), buildBottomNavigatorBarItem('Kitaplığın', Icons.book)],
       ),
     );

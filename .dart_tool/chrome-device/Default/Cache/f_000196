@@ -1,0 +1,564 @@
+define(['dart_sdk', 'packages/get/get_instance/src/extension_instance.dart', 'packages/spotify/pages/playlist_page/controllers/playList_controller.dart', 'packages/get/get_core/src/get_main.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/page.dart', 'packages/spotify/pages/played_song_page/played_song_page.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/get/get_state_manager/src/rx_flutter/rx_obx_widget.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/spotify/utils/custom_widgets/custom_icon_button.dart', 'packages/flutter/src/material/icons.dart'], (function load__packages__spotify__utils__custom_widgets__custom_played_song_bottom_container_dart(dart_sdk, packages__get__get_instance__src__extension_instance$46dart, packages__spotify__pages__playlist_page__controllers__playList_controller$46dart, packages__get__get_core__src__get_main$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__page$46dart, packages__spotify__pages__played_song_page__played_song_page$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__rendering__flex$46dart, packages__get__get_state_manager__src__rx_flutter__rx_obx_widget$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__painting__box_fit$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__strut_style$46dart, packages__spotify__utils__custom_widgets__custom_icon_button$46dart, packages__flutter__src__material__icons$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const extension_instance = packages__get__get_instance__src__extension_instance$46dart.get_instance__src__extension_instance;
+  const playList_controller = packages__spotify__pages__playlist_page__controllers__playList_controller$46dart.pages__playlist_page__controllers__playList_controller;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const page = packages__flutter__src__material__page$46dart.src__material__page;
+  const played_song_page = packages__spotify__pages__played_song_page__played_song_page$46dart.pages__played_song_page__played_song_page;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const rx_obx_widget = packages__get__get_state_manager__src__rx_flutter__rx_obx_widget$46dart.get_state_manager__src__rx_flutter__rx_obx_widget;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const custom_icon_button = packages__spotify__utils__custom_widgets__custom_icon_button$46dart.utils__custom_widgets__custom_icon_button;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  var custom_played_song_bottom_container = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    BuildContextToPlayedSongPage: () => (T.BuildContextToPlayedSongPage = dart.constFn(dart.fnType(played_song_page.PlayedSongPage, [framework.BuildContext])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    VoidToImage: () => (T.VoidToImage = dart.constFn(dart.fnType(image.Image, [])))(),
+    VoidToText: () => (T.VoidToText = dart.constFn(dart.fnType(text.Text, [])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    VoidToWidget: () => (T.VoidToWidget = dart.constFn(dart.fnType(framework.Widget, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.constList([], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 49,
+        [_Location_line]: 14,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "src",
+        [_Location_column]: 48,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 19,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "fit",
+        [_Location_column]: 19,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6], widget_inspector._Location);
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[3] || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 27,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 17,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9], widget_inspector._Location);
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 3
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 55,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 25,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14], widget_inspector._Location);
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 23,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 67,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 74,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 23,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24], widget_inspector._Location);
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.constList([C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[26] || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 17,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.constList([C[36] || CT.C36, C[37] || CT.C37], widget_inspector._Location);
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[35] || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 17,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40], widget_inspector._Location);
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 17,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.constList([C[43] || CT.C43], widget_inspector._Location);
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 64,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46], widget_inspector._Location);
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[45] || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.constList([C[49] || CT.C49, C[50] || CT.C50], widget_inspector._Location);
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[48] || CT.C48,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 20,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 18,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 7,
+        [_Location_line]: 19,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 20,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.constList([C[53] || CT.C53, C[54] || CT.C54, C[55] || CT.C55], widget_inspector._Location);
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[52] || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 17,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 5,
+        [_Location_line]: 11,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 5,
+        [_Location_line]: 17,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59], widget_inspector._Location);
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[57] || CT.C57,
+        [_Location_name]: null,
+        [_Location_column]: 10,
+        [_Location_line]: 10,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/utils/custom_widgets/custom_played_song_bottom_container.dart"
+      });
+    }
+  }, false);
+  var C = Array(60).fill(void 0);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  custom_played_song_bottom_container.bottomPlayedSongContainer = function bottomPlayedSongContainer(context) {
+    let playListController = extension_instance['Inst|put'](playList_controller.PlayListController, get_main.Get, new playList_controller.PlayListController.new());
+    return new gesture_detector.GestureDetector.new({onTap: dart.fn(() => {
+        navigator.Navigator.push(dart.dynamic, context, new page.MaterialPageRoute.new({builder: dart.fn(context => new played_song_page.PlayedSongPage.new({$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), T.BuildContextToPlayedSongPage())}));
+      }, T.VoidTovoid()), child: new container.Container.new({height: media_query.MediaQuery.of(context).size.height / 12, color: colors.Colors.grey._get(800), child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.spaceBetween, children: T.JSArrayOfWidget().of([new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.spaceBetween, children: T.JSArrayOfWidget().of([new rx_obx_widget.Obx.new(dart.fn(() => new image.Image.network(playListController.onTapSong.value, {alignment: alignment.Alignment.centerLeft, fit: box_fit.BoxFit.contain, $creationLocationd_0dea112b090073317d4: C[2] || CT.C2}), T.VoidToImage()), {$creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), new basic.Padding.new({padding: C[10] || CT.C10, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new rx_obx_widget.Obx.new(dart.fn(() => new text.Text.new(playListController.onTapTitle.value, {style: new text_style.TextStyle.new({color: colors.Colors.white, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), T.VoidToText()), {$creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), new rx_obx_widget.Obx.new(dart.fn(() => new text.Text.new(playListController.onTapSubtitle.value, {style: new text_style.TextStyle.new({color: colors.Colors.white}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18}), T.VoidToText()), {$creationLocationd_0dea112b090073317d4: C[22] || CT.C22})]), $creationLocationd_0dea112b090073317d4: C[25] || CT.C25}), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30})]), $creationLocationd_0dea112b090073317d4: C[34] || CT.C34}), new basic.Row.new({children: T.JSArrayOfWidget().of([new rx_obx_widget.Obx.new(dart.fn(() => framework.Widget.as(custom_icon_button.buildIconButton(playListController.isFav.value ? icons.Icons.favorite : icons.Icons.favorite_border, {color: playListController.isFav.value ? colors.Colors.green : colors.Colors.white, onPressed: dart.fn(() => {
+                    playListController.changeFavState();
+                  }, T.VoidToNull())})), T.VoidToWidget()), {$creationLocationd_0dea112b090073317d4: C[38] || CT.C38}), new rx_obx_widget.Obx.new(dart.fn(() => framework.Widget.as(custom_icon_button.buildIconButton(playListController.isPlaying.value ? icons.Icons.play_arrow : icons.Icons.pause, {onPressed: dart.fn(() => {
+                    playListController.changePlayingState();
+                  }, T.VoidToNull())})), T.VoidToWidget()), {$creationLocationd_0dea112b090073317d4: C[41] || CT.C41})]), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44})]), $creationLocationd_0dea112b090073317d4: C[47] || CT.C47}), $creationLocationd_0dea112b090073317d4: C[51] || CT.C51}), $creationLocationd_0dea112b090073317d4: C[56] || CT.C56});
+  };
+  dart.trackLibraries("packages/spotify/utils/custom_widgets/custom_played_song_bottom_container.dart", {
+    "package:spotify/utils/custom_widgets/custom_played_song_bottom_container.dart": custom_played_song_bottom_container
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["custom_played_song_bottom_container.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;qGAMuD;AACjD,6BAAyB,uEAAJ,cAAQ;AAEjC,UAAO,kDACE;AAIJ,QAHS,uCACR,OAAO,EACP,yCAA2B,QAAC,WAAY;iCAGrC,qCACc,AAAY,AAAK,AAAO,0BAArB,OAAO,gBAAgB,WAC/B,AAAI,wBAAC,aACZ,sCACgC,+CAC3B,wBACR,sCACuC,+CAC3B,wBACR,0BACE,cAAY,wBACV,AAAmB,AAAU,kBAAX,8BACG,qCACT,6JAGhB,wDAES,yCACgC,wDACE,yCAC7B,wBACR,0BACE,cAAM,kBACJ,AAAmB,AAAW,kBAAZ,2BACX,qCAAwB,iCAA8B,8JAGjE,0BACE,cAAM,kBAAK,AAAmB,AAAc,kBAAf,8BAA6B,qCAAwB,oVAO9F,6BACY,wBACR,0BACE,kCAAM,mCACJ,AAAmB,AAAM,kBAAP,eAAqB,uBAAiB,qCACjD,AAAmB,AAAM,kBAAP,eAAsB,sBAAe,gCACnD;AAC0B,oBAAnC,AAAmB,kBAAD;wHAIxB,0BACE,kCAAM,mCACJ,AAAmB,AAAU,kBAAX,mBAAyB,yBAAmB,+BACnD;AAC8B,oBAAvC,AAAmB,kBAAD;;EAUtC","file":"../../../../../../../../packages/spotify/utils/custom_widgets/custom_played_song_bottom_container.dart.lib.js"}');
+  // Exports:
+  return {
+    utils__custom_widgets__custom_played_song_bottom_container: custom_played_song_bottom_container
+  };
+}));
+
+//# sourceMappingURL=custom_played_song_bottom_container.dart.lib.js.map

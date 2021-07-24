@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:spotify/utils/custom_widgets/titles.dart';
 import 'package:spotify/pages/played_song_page/widgets/center_image.dart';
 import 'package:spotify/pages/played_song_page/widgets/head_title_and_buttons.dart';
@@ -28,7 +29,14 @@ class _PlayedSongPageState extends State<PlayedSongPage> {
        mainAxisAlignment: MainAxisAlignment.spaceAround,
        children: [
          buildSubTitle('The Lumminers', 20,FontWeight.bold),
-         buildSubTitle('Angela', 12,FontWeight.normal)
+         buildSubTitle('Angela', 14,FontWeight.normal),
+        LinearPercentIndicator(
+                    width: 300.0,
+                    lineHeight: 9.0,
+                    percent: 0.3,
+                    backgroundColor: Colors.grey,
+                    progressColor: Colors.blue,
+                  ),
        ],
      ),
      

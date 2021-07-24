@@ -41,7 +41,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 buildStorageListTile(Colors.grey,'Free'),
              ],
            ),
-
         ],),
       ) ,
     );

@@ -18,6 +18,7 @@ class _SpotifyPlayList extends State {
   bool isSwitched = false;
   //late ileride eşitlenmek zorunda eşitlenmeden kullanılmak istenirse hata alınır  ? verilmese de olur
   String? onTapSong;
+  
   late String ontTapTitle;
   @override
   Widget build(BuildContext context) {
@@ -38,6 +39,7 @@ class _SpotifyPlayList extends State {
                     turkishPopInfo(context),
                     Align(alignment: Alignment.centerRight, child: DowloadSwitch()),
                     Column(children: buildSongList(context),
+                    
                     ),
                   ],
                 ),
@@ -46,6 +48,7 @@ class _SpotifyPlayList extends State {
           ),
          
         ],
+      
       ),
     );
   }

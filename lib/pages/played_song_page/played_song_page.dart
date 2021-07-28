@@ -13,33 +13,24 @@ class PlayedSongPage extends StatefulWidget {
 }
 
 class _PlayedSongPageState extends State<PlayedSongPage> {
-  
   @override
   Material build(BuildContext context) {
     return Material(
       child: Container(
           decoration: colorTransitionGrey(),
-   child: Column(
-     crossAxisAlignment: CrossAxisAlignment.start,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-     buildHeadTitleAndButtons(),
-     buildCenterImage(),
-     Column(
-       crossAxisAlignment: CrossAxisAlignment.start,
-       mainAxisAlignment: MainAxisAlignment.spaceAround,
-       children: [
-         buildSubTitle('The Lumminers', 20,FontWeight.bold),
-         buildSubTitle('Angela', 14,FontWeight.normal),
-        LinearPercentIndicator(
-                    width: 300.0,
-                    lineHeight: 9.0,
-                    percent: 0.3,
-                    backgroundColor: Colors.grey,
-                    progressColor: Colors.blue,
-                  ),
-       ],
-     ),
-     
+              buildHeadTitleAndButtons(),
+              buildCenterImage(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  buildSubTitle('The Lumminers', 20, FontWeight.bold),
+                  buildSubTitle('Angela', 14, FontWeight.normal),
+                ],
+              ),
             ],
           )),
     );

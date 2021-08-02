@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotify/pages/playlist_page/controllers/playList_controller.dart';
 
-import '../widgets/playlist_listTile.dart';
+import '../widgets/custom_song_structure.dart.dart';
 
 var imageList = <String>[
   'https://images.genius.com/1eb5872268fac2cd1458025cf223b0b0.939x939x1.jpg',
@@ -38,7 +38,7 @@ var songNameList = <String>[
   'Kaptan',
 ];
 
-List<Widget> buildSongList(BuildContext context) {
+List<Widget> buildPlayListSongList(BuildContext context) {
   var widgetList = <Widget>[];
 
   for (var i = 0; i < imageList.length - 1; i++) {
@@ -58,6 +58,6 @@ GestureDetector buildContainer(BuildContext context, double height, String image
       playListController.changeTitle(listTitle);
       playListController.changeSubtitle(listSubtitle);
     },
-    child: customSongListTile(image, listTitle, mainColor, listSubtitle, secondaryColor),
+    child:customSongStructure(image, listTitle, mainColor, listSubtitle, secondaryColor),
   );
 }

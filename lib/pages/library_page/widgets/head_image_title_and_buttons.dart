@@ -16,25 +16,6 @@ Row buildHeadImageTitleAndButtons(BuildContext context) {
     rightTopTwoButtons(Icons.search, Icons.add,(){})
   ]);
 }
-
-/*SizedBox buildHeadImageTitleAndButtons(BuildContext context) {
-  String topTitle = 'Kitaplığın';
-  return SizedBox(
-    width: MediaQuery.of(context).size.width,
-    child: ListTile(
-      leading: profilImage(40),
-      title: Text(topTitle,style: TextStyle(color: Colors.white),),
-      trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [Icon(Icons.search), Icon(Icons.add)],)
-      ),
-  );
-  */
-  
-  
-  
-
-
 CircleAvatar profilImage(double radius) {
   return CircleAvatar(
     radius: radius,

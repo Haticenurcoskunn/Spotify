@@ -24,7 +24,6 @@ var singerList = <String>[
   'Feridun Düzağaç',
   'Yüzyüzeyken Konuşuruz'
 ];
-
 var songNameList = <String>[
   'Zeynep Bastık',
   'Cem Adrian',
@@ -36,14 +35,9 @@ var songNameList = <String>[
    'Feridun Düzağaç',
   'Yüzyüzeyken Konuşuruz',
 ];
-
-List<Widget> buildSongList(BuildContext context) {
+List<Widget> buildLibrarySongList(BuildContext context) {
   var widgetList = <Widget>[];
-
-  for (var i = 0; i < imageList.length ; i++) {
-    widgetList.add(buildLibrarySongInfo( context,MediaQuery.of(context).size.height / 14,
-        imageList[i], singerList[i], songNameList[i]));
+  for (var i = 0; i < imageList.length ; i++) {widgetList.add(buildLibrarySongInfo( context,MediaQuery.of(context).size.height / 14,imageList[i], singerList[i], songNameList[i]));
   }
-
   return widgetList;
 }

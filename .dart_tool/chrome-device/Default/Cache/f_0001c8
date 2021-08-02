@@ -1,0 +1,364 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/spotify/pages/home_page/home_page.dart', 'packages/spotify/pages/search_page/search_page.dart', 'packages/spotify/pages/playlist_page/widgets/head_text_and_buttons.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/spotify/utils/custom_widgets/custom_played_song_bottom_container.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/widgets/bottom_navigation_bar_item.dart', 'packages/flutter/src/widgets/icon.dart'], (function load__packages__spotify__navigation__navigation_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__spotify__pages__home_page__home_page$46dart, packages__spotify__pages__search_page__search_page$46dart, packages__spotify__pages__playlist_page__widgets__head_text_and_buttons$46dart, packages__flutter__src__material__icon_button$46dart, packages__spotify__utils__custom_widgets__custom_played_song_bottom_container$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__widgets__bottom_navigation_bar_item$46dart, packages__flutter__src__widgets__icon$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const home_page = packages__spotify__pages__home_page__home_page$46dart.pages__home_page__home_page;
+  const search_page = packages__spotify__pages__search_page__search_page$46dart.pages__search_page__search_page;
+  const library_page = packages__spotify__pages__playlist_page__widgets__head_text_and_buttons$46dart.pages__library_page__library_page;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const bottom_navigation_bar = packages__flutter__src__material__icon_button$46dart.src__material__bottom_navigation_bar;
+  const custom_played_song_bottom_container = packages__spotify__utils__custom_widgets__custom_played_song_bottom_container$46dart.utils__custom_widgets__custom_played_song_bottom_container;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const bottom_navigation_bar_item = packages__flutter__src__widgets__bottom_navigation_bar_item$46dart.src__widgets__bottom_navigation_bar_item;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  var navigation = Object.create(dart.library);
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    JSArrayOfBottomNavigationBarItem: () => (T.JSArrayOfBottomNavigationBarItem = dart.constFn(_interceptors.JSArray$(bottom_navigation_bar_item.BottomNavigationBarItem)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.constList([], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 5,
+        [_Location_line]: 21,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/navigation/navigation.dart"
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 5,
+        [_Location_line]: 22,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/navigation/navigation.dart"
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 5,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/navigation/navigation.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "flex",
+        [_Location_column]: 20,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/navigation/navigation.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "flex",
+        [_Location_column]: 20,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 28,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 32,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/navigation/navigation.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14], widget_inspector._Location);
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 29,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/navigation/navigation.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 9,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "unselectedItemColor",
+        [_Location_column]: 9,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "selectedItemColor",
+        [_Location_column]: 9,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "currentIndex",
+        [_Location_column]: 9,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 9,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "items",
+        [_Location_column]: 9,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22], widget_inspector._Location);
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/navigation/navigation.dart"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 7,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "bottomNavigationBar",
+        [_Location_column]: 9,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26], widget_inspector._Location);
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[24] || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/navigation/navigation.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 7,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///C:/Users/HaticeNur/Desktop/github/Spotify/lib/navigation/navigation.dart"
+      });
+    }
+  }, false);
+  var C = Array(30).fill(void 0);
+  var I = ["package:spotify/navigation/navigation.dart"];
+  navigation.Spotify = class Spotify extends framework.StatefulWidget {
+    createState() {
+      return new navigation.SpotifyState.new();
+    }
+  };
+  (navigation.Spotify.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    navigation.Spotify.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = navigation.Spotify.prototype;
+  dart.addTypeTests(navigation.Spotify);
+  dart.addTypeCaches(navigation.Spotify);
+  dart.setMethodSignature(navigation.Spotify, () => ({
+    __proto__: dart.getMethods(navigation.Spotify.__proto__),
+    createState: dart.fnType(navigation.SpotifyState, [])
+  }));
+  dart.setLibraryUri(navigation.Spotify, I[0]);
+  var currentTabIndex = dart.privateName(navigation, "SpotifyState.currentTabIndex");
+  var tabs = dart.privateName(navigation, "SpotifyState.tabs");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  navigation.SpotifyState = class SpotifyState extends framework.State$(navigation.Spotify) {
+    get currentTabIndex() {
+      return this[currentTabIndex];
+    }
+    set currentTabIndex(value) {
+      this[currentTabIndex] = value;
+    }
+    get tabs() {
+      return this[tabs];
+    }
+    set tabs(value) {
+      this[tabs] = value;
+    }
+    onTapped(index) {
+      this.setState(dart.fn(() => {
+        this.currentTabIndex = index;
+      }, T.VoidTovoid()));
+    }
+    build(context) {
+      return new scaffold.Scaffold.new({body: new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.Expanded.new({flex: 15, child: this.tabs[$_get](this.currentTabIndex), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), new basic.Expanded.new({flex: 2, child: custom_played_song_bottom_container.bottomPlayedSongInfo(context), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8})]), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), bottomNavigationBar: new bottom_navigation_bar.BottomNavigationBar.new({onTap: dart.bind(this, 'onTapped'), unselectedItemColor: colors.Colors.white, selectedItemColor: colors.Colors.white, currentIndex: this.currentTabIndex, backgroundColor: colors.Colors.grey._get(850), items: T.JSArrayOfBottomNavigationBarItem().of([navigation.buildBottomNavigatorBarItem("Ana Sayfa", icons.Icons.home), navigation.buildBottomNavigatorBarItem("Ara", icons.Icons.search), navigation.buildBottomNavigatorBarItem("Kitaplığın", icons.Icons.book)]), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), $creationLocationd_0dea112b090073317d4: C[23] || CT.C23});
+    }
+  };
+  (navigation.SpotifyState.new = function() {
+    this[currentTabIndex] = 0;
+    this[tabs] = T.JSArrayOfWidget().of([new home_page.HomePage.new({$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), new search_page.SearchPage.new({$creationLocationd_0dea112b090073317d4: C[2] || CT.C2}), new library_page.LibraryPage.new({$creationLocationd_0dea112b090073317d4: C[3] || CT.C3})]);
+    navigation.SpotifyState.__proto__.new.call(this);
+    ;
+  }).prototype = navigation.SpotifyState.prototype;
+  dart.addTypeTests(navigation.SpotifyState);
+  dart.addTypeCaches(navigation.SpotifyState);
+  dart.setMethodSignature(navigation.SpotifyState, () => ({
+    __proto__: dart.getMethods(navigation.SpotifyState.__proto__),
+    onTapped: dart.fnType(dart.dynamic, [core.int]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(navigation.SpotifyState, I[0]);
+  dart.setFieldSignature(navigation.SpotifyState, () => ({
+    __proto__: dart.getFields(navigation.SpotifyState.__proto__),
+    currentTabIndex: dart.fieldType(core.int),
+    tabs: dart.fieldType(core.List$(framework.Widget))
+  }));
+  navigation.buildBottomNavigatorBarItem = function buildBottomNavigatorBarItem(bottomTitle, bottomIcon) {
+    return new bottom_navigation_bar_item.BottomNavigationBarItem.new({icon: new icon.Icon.new(bottomIcon, {$creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), label: bottomTitle});
+  };
+  dart.trackLibraries("packages/spotify/navigation/navigation.dart", {
+    "package:spotify/navigation/navigation.dart": navigation
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["navigation.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAQgC;IAAc;;;;;;EAC9C;;;;;;;;;;;;;;;;IAGM;;;;;;IAOS;;;;;;aANA;AAGT,MAFF,cAAS;AACgB,QAAvB,uBAAkB,KAAK;;IAE3B;UAS0B;AACxB,YAAO,kCACC,gCACM,wBACR,8BAAe,WAAU,AAAI,iBAAC,gFAC9B,8BAAe,UAAS,yDAAqB,OAAO,8IAGjC,oEACd,wCACqB,wCACF,mCACZ,uCACU,AAAI,wBAAC,aACtB,yCACL,uCAA4B,aAAmB,mBAC/C,uCAA4B,OAAa,qBACzC,uCAA4B,cAAoB;IAIxD;;;IAnCI,wBAAkB;IAOT,aAAO,wBAClB,qFACA,yFACA;;;EA0BJ;;;;;;;;;;;;;;gFAGS,aACE;AAET,UAAO,mEACC,kBACJ,UAAU,qEAEL,WAAW;EAEtB","file":"../../../../../../../packages/spotify/navigation/navigation.dart.lib.js"}');
+  // Exports:
+  return {
+    navigation__navigation: navigation
+  };
+}));
+
+//# sourceMappingURL=navigation.dart.lib.js.map

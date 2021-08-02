@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:spotify/pages/playlist_page/controllers/playList_controller.dart';
 import 'package:spotify/pages/playlist_page/playlist_page.dart';
-import 'package:spotify/pages/playlist_page/widgets/playlist_listTile.dart';
-
+import 'package:spotify/pages/playlist_page/widgets/custom_song_structure.dart.dart';
 
 GestureDetector buildLibrarySongInfo(BuildContext context, double height, String image, String listTitle, String listSubtitle) {
   var mainColor = Colors.white;
   var secondaryColor = Colors.grey;
-  var playListController = Get.put(PlayListController());
   return GestureDetector(
     onTap: () {
       Navigator.push(
@@ -17,10 +13,7 @@ GestureDetector buildLibrarySongInfo(BuildContext context, double height, String
           builder: (context) => SpotifyPlayList(),
         ),
       );
-      playListController.changeImage(image);
-      playListController.changeTitle(listTitle);
-      playListController.changeSubtitle(listSubtitle);
     },
-    child: customSongListTile(image, listTitle, mainColor, listSubtitle, secondaryColor),
+    child: customSongStructure(image, listTitle, mainColor, listSubtitle, secondaryColor),
   );
 }

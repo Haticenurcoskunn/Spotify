@@ -5,7 +5,6 @@ import 'package:spotify/utils/custom_widgets/titles.dart';
 import 'package:spotify/pages/home_page/widgets/album_info.dart';
 import 'package:spotify/pages/home_page/widgets/daily_mix.dart';
 import 'package:spotify/utils/custom_widgets/top_row_buttons.dart';
-import 'package:spotify/utils/page_decoration/color_transitions/color_transition_red.dart';
 import 'package:spotify/pages/home_page/widgets/popular_container.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,9 +18,8 @@ class _SpotifyMainPageState extends State<HomePage> with TickerProviderStateMixi
   String recentlyPlayed = 'Yakınlarda Çalınanlar';
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        decoration: buildColorTransitionRed(),
+    return Scaffold(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment:MainAxisAlignment.spaceBetween,
           children: [
@@ -48,7 +46,6 @@ class _SpotifyMainPageState extends State<HomePage> with TickerProviderStateMixi
                 ],
               ),
             ),
-      //     Expanded(child: bottomPlayedSongInfo(context)),
           ],
         ),
       ),
